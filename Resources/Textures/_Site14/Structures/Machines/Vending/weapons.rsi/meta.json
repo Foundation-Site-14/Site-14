@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Foundation-19 at https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/vending.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "weaponry"
+    },
+    {
+      "name": "lcz_weaponry"
+    },
+    {
+      "name": "ez_weaponry"
+    },
+    {
+      "name": "goc_weaponry"
+    },
+    {
+      "name": "ci_weaponry"
+    },
+    {
+      "name": "ci_weaponry_special"
+    }
+  ]
+}
