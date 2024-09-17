@@ -1,0 +1,8 @@
+- type: messagePack
+  id: WaterAds
+  messages:
+  - advertisement-water-1
+  - advertisement-water-2
+  - advertisement-water-3
+  - advertisement-water-4
+  - advertisement-water-5

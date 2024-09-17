@@ -1,0 +1,44 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineFoundationWaterDispenser
+  name: Foundation Water Dispenser
+  description: Dispenses free bottles of water for D-class personnel. Ice sold seperately.
+  components:
+  - type: VendingMachine
+    pack: FoundationWaterInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    ejectDelay: 1.9
+    initialStockQuality: 0.33
+  - type: Advertise
+    pack: WaterAds
+  # - type: SpeakOnUIClosed
+    # pack: WaterGoodbyes
+  - type: Speech
+  - type: Sprite
+    noRot: true
+    sprite: _Site14/Structures/Machines/Vending/water.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    color: "#3c5eb5"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true
