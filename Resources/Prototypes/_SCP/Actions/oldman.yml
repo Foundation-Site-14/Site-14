@@ -1,0 +1,55 @@
+- type: entity
+  id: ActionTraversePocketDimension
+  name: Traverse Pocket Dimension
+  description: Traverse your pocket dimension
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _SCP/Interface/Actions/oldman.rsi
+      state: traversepocket
+    event: !type:TogglePocketDimension
+    useDelay: 3
+  - type: TraversePocketDimensionAction
+
+- type: entity
+  id: ActionCreateTeleportNode
+  name: Create Teleport Node
+  description: Create teleport node. If one already exists it will be moved 
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _SCP/Interface/Actions/oldman.rsi
+      state: createnode
+    event: !type:CreateTeleportNodeEvent
+    useDelay: 3
+  - type: CreateTeleportNode
+
+- type: entity
+  id: ActionDestroyTeleportNode
+  name: Destroy Teleport Node
+  description: Delete your teleport node
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _SCP/Interface/Actions/oldman.rsi
+      state: destroynode
+    event: !type:DestroyTeleportNodeEvent
+    useDelay: 3
+  - type: DestroyTeleportNode
+
+- type: entity
+  id: ActionTraverseTeleportNode
+  name: Traverse Teleport Node
+  description: Teleport to your teleport node
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _SCP/Interface/Actions/oldman.rsi
+      state: traversenode
+    event: !type:TraverseTeleportNodeEvent
+    useDelay: 3
+  - type: TraverseTeleportNode
