@@ -28,7 +28,7 @@ public sealed class PocketDimensionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 
-    public const string pocketDimensionMapPath = "/Maps/Test/admin_test_arena.yml";
+    public const string pocketDimensionMapPath = "/Maps/_SCP/testpocket.yml";
 
     public override void Initialize()
     {
@@ -85,7 +85,7 @@ public sealed class PocketDimensionSystem : EntitySystem
             dweller.dimensionOwner = owner;
             var puddle = Comp<CorrosivePuddleComponent>(SpawnAtPosition(comp.PocketPuddle, transform.Coordinates));
             puddle.shouldDecay = true;
-            _xformSystem.SetCoordinates(entity, new EntityCoordinates(comp.pocketDimensionGrid.Value, Vector2.Zero));
+            _xformSystem.SetCoordinates(entity, new EntityCoordinates(comp.pocketDimensionGrid.Value, GetSpawnLocation(comp)));
             EntityManager.EventBus.RaiseComponentEvent<EnterPocketDimension>(dweller, new EnterPocketDimension());
         }
     }
@@ -229,6 +229,22 @@ public sealed class PocketDimensionSystem : EntitySystem
         QueueDel(comp.pocketDimensionGrid.Value);
         if (TryComp<MapComponent>(comp.pocketDimensionMap, out var map))
             _mapManager.DeleteMap(map.MapId);
+    }
+
+    private Vector2 GetSpawnLocation(PocketDimensionHolderComponent holder)
+    {
+        if (holder.pocketDimensionGrid == null)
+            return Vector2.Zero;
+
+        var pocketUid = holder.pocketDimensionGrid.Value;
+
+        var query = EntityQuery<CorrosivePuddleSpawnComponent,TransformComponent>().ToList();
+
+        var puddles = query.Where(p => p.Item2.GridUid == pocketUid).ToList();
+
+        var random = new Random();
+
+        return puddles[random.Next(puddles.Count)].Item2.Coordinates.Position;
     }
 
 }
