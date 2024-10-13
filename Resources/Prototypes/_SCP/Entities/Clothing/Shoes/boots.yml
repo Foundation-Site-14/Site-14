@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesBootsDutySec
+  name: duty boots
+  description: Security combat boots for combat scenarios or combat situations. All combat, all the time.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Shoes/Boots/dutyboots.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Shoes/Boots/dutyboots.rsi

@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHelmetGuard
+  name: foundation security helmet
+  description: A heavy non-descript helmet with built-in padding, and armor. It has a poly-carbonate yellow riot visor on it.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Head/Helmets/sechelm.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Head/Helmets/sechelm.rsi
