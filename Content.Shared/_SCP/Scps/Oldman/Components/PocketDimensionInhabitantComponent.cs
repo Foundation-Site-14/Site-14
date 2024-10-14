@@ -15,6 +15,8 @@ namespace Content.Shared._SCP.Scps.Oldman.Components;
 [AutoGenerateComponentState]
 public sealed partial class PocketDimensionInhabitantComponent : Component
 {
+    public EntityUid ownedPuddle;
+
     [AutoNetworkedField]
     public EntityUid dimensionOwner;
 

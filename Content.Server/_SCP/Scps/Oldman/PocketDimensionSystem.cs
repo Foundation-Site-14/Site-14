@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Shared._SCP.Scps.Oldman;
 using Content.Shared._SCP.Scps.Oldman.Components;
 using Content.Shared.Actions;
@@ -32,20 +28,20 @@ public sealed class PocketDimensionSystem : EntitySystem
 
     public override void Initialize()
     {
-        base.Initialize();
-
-        SubscribeLocalEvent<PocketDimensionHolderComponent, MeleeHitEvent>(OnSend);
-
-        SubscribeLocalEvent<PocketDimensionHolderComponent, OldManSpawn>(OnStartup);
-        SubscribeLocalEvent<CorrosivePuddleComponent, ComponentStartup>(OnPuddleStart);
-        SubscribeLocalEvent<PocketDimensionHolderComponent, ComponentShutdown>(OnShutdown);
-
-        SubscribeLocalEvent<PocketDimensionHolderComponent, TogglePocketDimensionDoAfter>(OnTogglePocketDimeison);
-        SubscribeLocalEvent<PocketDimensionHolderComponent, CreateTeleportNodeDoAfterEvent>(OnCreateNode);
-        SubscribeLocalEvent<PocketDimensionHolderComponent, DestroyTeleportNodeEvent>(OnDestroyNode);
-        SubscribeLocalEvent<PocketDimensionHolderComponent, TraverseTeleportNodeDoAfterEvent>(OnTraverseNode);
-
-        SubscribeLocalEvent<PocketDimensionInhabitantComponent, MobStateChangedEvent>(OnStateChange);
+        // base.Initialize();
+        //
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, MeleeHitEvent>(OnSend);
+        //
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, OldManSpawn>(OnStartup);
+        // SubscribeLocalEvent<CorrosivePuddleComponent, ComponentStartup>(OnPuddleStart);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, ComponentShutdown>(OnShutdown);
+        //
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, TogglePocketDimensionDoAfter>(OnTogglePocketDimeison);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, CreateTeleportNodeDoAfterEvent>(OnCreateNode);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, DestroyTeleportNodeEvent>(OnDestroyNode);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, TraverseTeleportNodeDoAfterEvent>(OnTraverseNode);
+        //
+        // SubscribeLocalEvent<PocketDimensionInhabitantComponent, MobStateChangedEvent>(OnStateChange);
     }
 
     public void OnPuddleStart(EntityUid owner, CorrosivePuddleComponent comp, ComponentStartup args)
@@ -83,9 +79,14 @@ public sealed class PocketDimensionSystem : EntitySystem
                 return;
             var dweller = AddComp<PocketDimensionInhabitantComponent>(entity);
             dweller.dimensionOwner = owner;
-            var puddle = Comp<CorrosivePuddleComponent>(SpawnAtPosition(comp.PocketPuddle, transform.Coordinates));
-            puddle.shouldDecay = true;
-            _xformSystem.SetCoordinates(entity, new EntityCoordinates(comp.pocketDimensionGrid.Value, GetSpawnLocation(comp)));
+            var spawnVectors = GetSpawnLocation(comp);
+
+            var entrancePuddle = SpawnAtPosition(comp.PocketPuddle, transform.Coordinates);
+            var exitPuddle = Comp<CorrosivePuddleComponent>(SpawnAtPosition(comp.PocketPuddle, spawnVectors.Item2));
+
+            exitPuddle.linkedPuddle = entrancePuddle;
+
+            _xformSystem.SetCoordinates(entity, new EntityCoordinates(comp.pocketDimensionGrid.Value, spawnVectors.Item1));
             EntityManager.EventBus.RaiseComponentEvent<EnterPocketDimension>(dweller, new EnterPocketDimension());
         }
     }
@@ -112,8 +113,7 @@ public sealed class PocketDimensionSystem : EntitySystem
         {
             if (TryComp<CorrosivePuddleComponent>(comp.movePuddleEntity, out var puddle))
             {
-                puddle.decayTimer = TimeSpan.FromSeconds(3f);
-                puddle.shouldDecay = true;
+
             }
             _actions.SetCooldown(traverseId, traverse.cooldownExit);
             _xformSystem.SetCoordinates(owner, comp.lastLocation);
@@ -168,7 +168,6 @@ public sealed class PocketDimensionSystem : EntitySystem
         if (!TryComp<CorrosivePuddleComponent>(comp.teleportNode, out var puddle))
             return;
         comp.teleportNode = null;
-        puddle.shouldDecay = true;
 
         if (_oldMan.GetAction<CreateTeleportNodeComponent>(owner, out var createcomp, out var create))
             _actions.SetCooldown(owner, createcomp.destroyCooldown);
@@ -231,10 +230,10 @@ public sealed class PocketDimensionSystem : EntitySystem
             _mapManager.DeleteMap(map.MapId);
     }
 
-    private Vector2 GetSpawnLocation(PocketDimensionHolderComponent holder)
+    private Tuple<Vector2,EntityCoordinates> GetSpawnLocation(PocketDimensionHolderComponent holder)
     {
         if (holder.pocketDimensionGrid == null)
-            return Vector2.Zero;
+            return new Tuple<Vector2, EntityCoordinates>(Vector2.Zero,default);
 
         var pocketUid = holder.pocketDimensionGrid.Value;
 
@@ -244,7 +243,13 @@ public sealed class PocketDimensionSystem : EntitySystem
 
         var random = new Random();
 
-        return puddles[random.Next(puddles.Count)].Item2.Coordinates.Position;
+        Vector2 spawnVector = puddles[random.Next(puddles.Count)].Item2.Coordinates.Position;
+
+        var distancesorted = puddles.OrderBy(p => Vector2.Distance(spawnVector,p.Item2.Coordinates.Position)).ToList();
+
+        EntityCoordinates farVector = distancesorted[distancesorted.Count - 1].Item2.Coordinates;
+
+        return new Tuple<Vector2, EntityCoordinates>(spawnVector,farVector);
     }
 
 }

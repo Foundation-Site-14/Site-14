@@ -35,13 +35,13 @@ public sealed class SharedOldManSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _state = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<PocketDimensionHolderComponent, ComponentStartup>(OnStartComponent);
-
-        SubscribeLocalEvent<PocketDimensionHolderComponent, TogglePocketDimension>(OnTogglePocket);
-        SubscribeLocalEvent<PocketDimensionHolderComponent, CreateTeleportNodeEvent>(OnCreateNode);
-        SubscribeLocalEvent<PocketDimensionHolderComponent, TraverseTeleportNodeEvent>(OnTraverseNode);
-
-        SubscribeLocalEvent<PocketDimensionInhabitantComponent, EnterPocketDimension>(OnEnter);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, ComponentStartup>(OnStartComponent);
+        //
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, TogglePocketDimension>(OnTogglePocket);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, CreateTeleportNodeEvent>(OnCreateNode);
+        // SubscribeLocalEvent<PocketDimensionHolderComponent, TraverseTeleportNodeEvent>(OnTraverseNode);
+        //
+        // SubscribeLocalEvent<PocketDimensionInhabitantComponent, EnterPocketDimension>(OnEnter);
     }
 
     #region startup
@@ -150,22 +150,6 @@ public sealed class SharedOldManSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var puddles = EntityQueryEnumerator<CorrosivePuddleComponent>();
-
-        while (puddles.MoveNext(out var uid, out var puddle))
-        {
-            if (puddle.shouldDecay && !puddle.isDecaying)
-            {
-                puddle.decayStart = _timing.CurTime;
-                puddle.isDecaying = true;
-            }
-            else if (puddle.isDecaying)
-            {
-                if (puddle.decayStart + puddle.decayTimer < _timing.CurTime)
-                    QueueDel(uid);
-            }
-        }
-
         var people = EntityQueryEnumerator<PocketDimensionInhabitantComponent>();
 
         while (people.MoveNext(out var uid, out var person))
@@ -190,7 +174,7 @@ public sealed class SharedOldManSystem : EntitySystem
                     continue;
                 if (mind.Session == null)
                     continue;
-                _audio.PlayGlobal(person.HitNoise, mind.Session);
+                // _audio.PlayPvs(person.HitNoise, mind.Session);
             }
         }
     }
