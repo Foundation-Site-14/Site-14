@@ -1,0 +1,11 @@
+﻿- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSCPJunResearchSuit
+  name: researcher's formal uniform
+  description: A white dress shirt, with some khahki slacks, and a purple tie in science colors, smells like chemicals.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/junresearcher.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/junresearcher.rsi
+

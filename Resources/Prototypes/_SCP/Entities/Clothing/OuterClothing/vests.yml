@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterArmorBasic
-  id: ClothingOuterGuardMedArmor
+  id: ClothingOuterSCPGuardMedArmor
   name: foundation security vest
   description: A heavy armored vest. Worn by facility security, it has some durathread plating in it to make it durable against melee, sadly not much else though.
   components:

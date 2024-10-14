@@ -1,6 +1,6 @@
 ﻿- type: entity
   parent: ClothingHeadHelmetBasic
-  id: ClothingHeadHelmetGuard
+  id: ClothingHeadSCPHelmetGuard
   name: foundation security helmet
   description: A heavy non-descript helmet with built-in padding, and armor. It has a poly-carbonate yellow riot visor on it.
   components:

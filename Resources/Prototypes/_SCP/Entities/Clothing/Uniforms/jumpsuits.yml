@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformClassD
-  name: Class-D Jumpsuit
-  description: A standard-issue orange jumpsuit, ideal for a Class-D personnel working in a controlled environment.
+  id: ClothingUniformSCPClassD
+  name: class-d jumpsuit
+  description: A standard-issue orange jumpsuit, ideal for a class-d personnel working in a controlled environment.
   components:
   - type: Sprite
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/classd.rsi
@@ -11,9 +11,9 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSecurityLCZ
-  name: LCZ Guard Uniform
-  description: A sterile white uniform. Currently issued to LCZ Guard personnel.
+  id: ClothingUniformSCPSecurityLCZ
+  name: lcz guard uniform
+  description: A sterile white uniform. Currently issued to LCZ guard personnel.
   components:
   - type: Sprite
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczguard.rsi
@@ -22,9 +22,9 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSecurityHCZ
-  name: HCZ Guard Uniform
-  description: A sterile white uniform. Currently issued to HCZ Guard personnel.
+  id: ClothingUniformSCPSecurityHCZ
+  name: hcz guard uniform
+  description: A sterile white uniform. Currently issued to HCZ guard personnel.
   components:
   - type: Sprite
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/hczguard.rsi
