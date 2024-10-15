@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Foundation 19 at https://github.com/Foundation-19/Foundation-19/blob/dev/icons/mob/onmob/onmob_suit.dmi https://github.com/Foundation-19/Foundation-19/blob/dev/icons/obj/clothing/obj_suit.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-OPEN"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-OPEN"
+    }
+  ]
+}
