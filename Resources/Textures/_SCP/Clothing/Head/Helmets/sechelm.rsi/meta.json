@@ -11,14 +11,14 @@
       "name": "icon"
     },
     {
-      "name": "icon-UP"
+      "name": "icon-open"
     },
     {
       "name": "equipped-HELMET",
       "directions": 4
     },
     {
-      "name": "equipped-HELMET-UP",
+      "name": "open-equipped-HELMET",
       "directions": 4
     },
     {

@@ -1,6 +1,6 @@
 ﻿- type: entity
-  parent: ClothingOuterBase
-  id: ClothingSCPSDCoat
+  parent: ClothingOuterStorageBase
+  id: SCPClothingOuterSDCoat
   name: site director's coat
   description: A heavy, black long coat with synthetic fur on it. It isn't very distinguishable except for the initials on the collar's tag, S.D.
   components:
@@ -8,3 +8,33 @@
     sprite: _SCP/Clothing/OuterClothing/Coats/sdcoat.rsi
   - type: Clothing
     sprite: _SCP/Clothing/OuterClothing/Coats/sdcoat.rsi
+  - type: Armor
+    modifiers: # carapce values
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+        Caustic: 0.9
+
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: SCPClothingOuterGuardComCoat
+  name: guard commander's coat
+  description: A heavy, black coat with synthetic fur on it.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/OuterClothing/Coats/guardcomcoat.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/OuterClothing/Coats/guardcomcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients: # HoS Values
+        Blunt: 0.70
+        Slash: 0.70 
+        Piercing: 0.70
+        Heat: 0.70
+        Caustic: 0.75 #not the full 90% from ss13 because of the head
+  - type: ExplosionResistance
+    damageCoefficient: 0.90

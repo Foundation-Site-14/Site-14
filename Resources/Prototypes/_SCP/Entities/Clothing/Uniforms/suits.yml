@@ -1,7 +1,7 @@
 ﻿
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSCPJunResearchSuit
+  id: SCPClothingUniformJunResearchSuit
   name: researcher's formal uniform
   description: A white dress shirt, with some khahki slacks, and a purple tie in science colors, smells like chemicals.
   components:
@@ -12,7 +12,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSCPSenResearchSuit
+  id: SCPClothingUniformSenResearchSuit
   name: senior researcher's formal uniform
   description: A purple dress shirt, with some khahki slacks, smells like chemicals.
   components:
@@ -23,7 +23,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSCPMedicalDirectorTurtleneck
+  id: SCPClothingUniformMedicalDirectorTurtleneck
   name: medical director's turtleneck
   description: It's a turtleneck worn by those with the experience to be Medical Director. It provides minor biological protection.
   components:
@@ -34,7 +34,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSCPResearchDirectorTurtleneck
+  id: SCPClothingUniformResearchDirectorTurtleneck
   name: research director's turtleneck
   description: It's a turtleneck worn by those with the experience to be Research Director. It provides minor biological protection.
   components:
@@ -45,7 +45,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformSCPSuitTie
+  id: SCPClothingUniformSuitTie
   name: research director's turtleneck
   description: A rather sterile looking suit and tie.
   components:
