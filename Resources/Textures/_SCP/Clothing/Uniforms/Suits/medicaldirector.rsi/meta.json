@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Foundation-19 at https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/onmob_under.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a071bad259a817843342a554217546e30bc6f6b3/icons/mob/onmob/uniform.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a071bad259a817843342a554217546e30bc6f6b3/icons/mob/onmob/uniform.dmi https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/lefthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a071bad259a817843342a554217546e30bc6f6b3/icons/obj/clothing/uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/lefthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/lefthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_under.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_under.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a071bad259a817843342a554217546e30bc6f6b3/icons/mob/onmob/uniform.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a071bad259a817843342a554217546e30bc6f6b3/icons/mob/onmob/uniform.dmi https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/31c312186f2e4b9e94fcd02972e75956d9445fff/icons/mob/onmob/items/lefthand_uniforms.dmi, Taken from Foundation-19 at https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/onmob_under.dmi , https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_under.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_under.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-RIGHT",
+      "directions": 4
+    },
+    {
+      "name": "inhand-LEFT",
+      "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    }
+  ]
+}

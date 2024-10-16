@@ -1,5 +1,42 @@
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformSCPJumpsuit
+  name: standard issue jumpsuit
+  description: A dark black uniform. This one seems to be without department insignia. On the back, in silver lettering, are the words 'SCP FOUNDATION'.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/jumpsuit.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformSCPJumpsuit
+  id: ClothingUniformSCPMaintenanceJumpsuit
+  name: maintenace jumpsuit
+  description: A dark black uniform. This one seems to be of the Engineering department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#ff7f00"
+
+- type: entity
+  parent: ClothingUniformSCPJumpsuit
+  id: ClothingUniformSCPLogisticsJumpsuit
+  name: logistics jumpsuit
+  description: A dark black uniform. This one seems to be of the Logistics department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#bb9042"
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformSCPClassD
   name: class-d jumpsuit
   description: A standard-issue orange jumpsuit, ideal for a class-d personnel working in a controlled environment.
@@ -22,6 +59,28 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformSCPSecurityLCZSeargent
+  name: lcz seargent uniform
+  description: A sterile white uniform. Currently issued to LCZ seargents.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczseargent.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczseargent.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSCPSecurityCommander
+  name: guard commander uniform
+  description: A white tactical shirt, with a pair of black trousers with golden striping on the side, the shirt is covered in gold insignia, with an additional black color over the wrists. There's a golden badge and belt buckle. This is definitely the definition of prospertiy.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guardcom.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guardcom.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformSCPSecurityHCZ
   name: hcz guard uniform
   description: A sterile white uniform. Currently issued to HCZ guard personnel.
@@ -31,4 +90,52 @@
   - type: Clothing
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/hczguard.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSCPEngineeringDirectorJumpsuit
+  name: maintenance director's jumpsuit
+  description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of \"Director of Maintenance\". It has minor radiation shielding.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/engineeringdirector.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/engineeringdirector.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSCPUtility
+  name: utility coveralls
+  description: The utility uniform of the SCP Foundation, made from an insulated material.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/utilitysuit.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/utilitysuit.rsi
+
+- type: entity
+  parent: ClothingUniformSCPUtility
+  id: ClothingUniformSCPMaintenance
+  name: maintenance coveralls
+  description: The utility uniform of the SCP Foundation, made from an insulated material, with orange markings denoting maintenance.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#ff7f00"
+
+- type: entity
+  parent: ClothingUniformSCPUtility
+  id: ClothingUniformSCPLogistics
+  name: logistics coveralls
+  description: The utility uniform of the SCP Foundation, made from an insulated material, with brown markings denoting logistics.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#bb9042"
 
