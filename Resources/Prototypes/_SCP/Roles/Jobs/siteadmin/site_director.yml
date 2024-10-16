@@ -1,5 +1,5 @@
 ﻿- type: job
-  parent: CMJobBase
+  parent: SCPJobBase
   id: SCPSiteDirector
   name: scp-job-name-site-director
   description: scp-job-description-site-director
@@ -19,23 +19,23 @@
     time: 36000 # 10 hours
   weight: 10
   startingGear: SCPGearSiteDirector
-  icon: "CMJobIconCommandingOfficer"
+  icon: "SCPJobIconSiteDirector"
   requireAdminNotify: true
   joinNotifyCrew: true
-  supervisors: cm-job-supervisors-marine-high-command
+  supervisors: scp-job-supervisors-scp-o5
   accessGroups:
-  - ShipMasterAccess
+  - Command
 
 - type: startingGear
   id: SCPGearSiteDirector
   equipment:
-    jumpsuit: CMJumpsuitCO
-    back: CMSatchel
-    shoes: CMShoesLaceupCommander
-    head: CMHeadBeretCO
-    outerClothing: CMCoatOfficer
-    id: CMIDCardCommandingOfficer
-    ears: CMHeadsetSeniorCommand
+    jumpsuit: 
+    back: 
+    shoes: 
+    head: 
+    outerClothing: 
+    id: 
+    ears: 
 
 - type: entity
   parent: SCPSpawnPointJobBase
@@ -47,7 +47,7 @@
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
-      state: green
+      state: green43
     - state: captain
 
 - type: playTimeTracker
