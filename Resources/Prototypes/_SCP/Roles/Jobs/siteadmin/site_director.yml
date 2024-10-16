@@ -1,0 +1,54 @@
+﻿- type: job
+  parent: CMJobBase
+  id: SCPSiteDirector
+  name: scp-job-name-site-director
+  description: scp-job-description-site-director
+  playTimeTracker: SCPJobSiteDirector
+  requirements:
+  - !type:TotalJobsTimeRequirement
+    group: SCPMaintenance
+    time: 36000 # 10 hours
+  - !type:DepartmentTimeRequirement
+    department: SCPSecurity
+    time: 36000 # 10 hours
+  - !type:TotalJobsTimeRequirement
+    group: SCPJobsMedical
+    time: 36000 # 10 hours
+  - !type:DepartmentTimeRequirement
+    department: SCPCommand
+    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearSiteDirector
+  icon: "CMJobIconCommandingOfficer"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: cm-job-supervisors-marine-high-command
+  accessGroups:
+  - ShipMasterAccess
+
+- type: startingGear
+  id: SCPGearSiteDirector
+  equipment:
+    jumpsuit: CMJumpsuitCO
+    back: CMSatchel
+    shoes: CMShoesLaceupCommander
+    head: CMHeadBeretCO
+    outerClothing: CMCoatOfficer
+    id: CMIDCardCommandingOfficer
+    ears: CMHeadsetSeniorCommand
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointCommandingOfficer
+  name: site director spawn point
+  components:
+  - type: SpawnPoint
+    job_id: CMCommandingOfficer
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: captain
+
+- type: playTimeTracker
+  id: SCPJobSiteDirector
