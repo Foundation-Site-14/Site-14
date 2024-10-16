@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: ClothingOuterStorageFoldableBase
-  id: ClothingOuterCoatLabSCP
-  name: foundation researcher's labcoat
+  id: SCPClothingOuterCoatLab
+  name: foundation researcher's lab coat
   description: A suit that protects against minor chemical spills. It has a purple stripe on the shoulder and purple trim on the sleeves, denoting it as a SCP Foundation labcoat.
   components:
   - type: Sprite
@@ -12,3 +12,8 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
+  id: SCPClothingOuterCoatLabOpened
+  name: foundation researcher's lab coat

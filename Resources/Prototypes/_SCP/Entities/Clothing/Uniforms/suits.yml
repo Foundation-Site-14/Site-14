@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformSCPJunResearchSuit
   name: researcher's formal uniform
@@ -41,3 +42,14 @@
     sprite: _SCP/Clothing/Uniforms/Suits/researchdirector.rsi
   - type: Clothing
     sprite: _SCP/Clothing/Uniforms/Suits/researchdirector.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSCPSuitTie
+  name: research director's turtleneck
+  description: A rather sterile looking suit and tie.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/suit_tie.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/suit_tie.rsi

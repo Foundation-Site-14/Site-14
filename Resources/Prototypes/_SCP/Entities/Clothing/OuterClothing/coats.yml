@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingOuterBase
+  id: ClothingSCPSDCoat
+  name: site director's coat
+  description: A heavy, black long coat with synthetic fur on it. It isn't very distinguishable except for the initials on the collar's tag, S.D.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/OuterClothing/Coats/sdcoat.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/OuterClothing/Coats/sdcoat.rsi
