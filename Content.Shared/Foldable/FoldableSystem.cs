@@ -18,7 +18,7 @@ public sealed class FoldableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FoldableComponent, GetVerbsEvent<AlternativeVerb>>(AddFoldVerb);
+        SubscribeLocalEvent< FoldableComponent, GetVerbsEvent<AlternativeVerb>>(AddFoldVerb);
         SubscribeLocalEvent<FoldableComponent, AfterAutoHandleStateEvent>(OnHandleState);
 
         SubscribeLocalEvent<FoldableComponent, ComponentInit>(OnFoldableInit);

@@ -1,4 +1,40 @@
 ﻿- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: SCPClothingOuterSuitJacket
+  name: black suit jacket
+  description: A snappy dress jacket
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/OuterClothing/Coats/suitjacket.rsi
+    layers:
+    - state: icon
+      color: "#1f1f1f"
+    - state: icon-open
+      color: "#1f1f1f"
+      visible: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#b3b3b3"
+      right:
+      - state: inhand-right
+        color: "#1f1f1f"
+  - type: Clothing
+    sprite: _SCP/Clothing/OuterClothing/Coats/suitjacket.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+        color: "#1f1f1f"
+      - state: open-equipped-OUTERCLOTHING
+        color: "#1f1f1f" 
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterSuitJacket]
+  id: SCPClothingOuterSuitJacketOpened
+  name: black suit jacket
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: SCPClothingOuterSDCoat
   name: site director's coat
@@ -16,7 +52,6 @@
         Piercing: 0.6
         Heat: 0.5
         Caustic: 0.9
-
 
 - type: entity
   parent: ClothingOuterStorageBase

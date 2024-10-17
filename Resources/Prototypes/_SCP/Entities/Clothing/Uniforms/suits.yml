@@ -46,7 +46,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: SCPClothingUniformSuitTie
-  name: research director's turtleneck
+  name: suit and tie
   description: A rather sterile looking suit and tie.
   components:
   - type: Sprite

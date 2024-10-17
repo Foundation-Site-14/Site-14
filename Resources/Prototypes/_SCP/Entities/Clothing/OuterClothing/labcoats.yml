@@ -1,6 +1,6 @@
 ﻿- type: entity
   parent: ClothingOuterStorageFoldableBase
-  id: SCPClothingOuterCoatLab
+  id: SCPClothingOuterCoatLabSci
   name: foundation researcher's lab coat
   description: A suit that protects against minor chemical spills. It has a purple stripe on the shoulder and purple trim on the sleeves, denoting it as a SCP Foundation labcoat.
   components:
@@ -14,8 +14,8 @@
         Caustic: 0.75
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
-  id: SCPClothingOuterCoatLabOpened
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLabSci]
+  id: SCPClothingOuterCoatLabSciOpened
   name: foundation researcher's lab coat
 
 - type: entity
@@ -30,7 +30,7 @@
     sprite: _SCP/Clothing/OuterClothing/Coats/asstlabcoat.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLabAsst]
   id: SCPClothingOuterCoatLabAsstOpened
   name: assistant director's lab coat
 
@@ -46,7 +46,7 @@
     sprite: _SCP/Clothing/OuterClothing/Coats/asstlabcoat.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLabRD]
   id: SCPClothingOuterCoatLabRDOpened
   name: research director's lab coat
 
@@ -62,6 +62,22 @@
     sprite: _SCP/Clothing/OuterClothing/Coats/mdlabcoat.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
-  id: SCPClothingOuterCoatLabMD
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLabMD]
+  id: SCPClothingOuterCoatLabMDOpened
   name: medical director's lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: SCPClothingOuterCoatLab
+  name:  lab coat
+  description: A coat that protects against minor chemical spills.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/OuterClothing/Coats/labcoat.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/OuterClothing/Coats/labcoat.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
+  id: SCPClothingOuterCoatLabOpened
+  name: lab coat
