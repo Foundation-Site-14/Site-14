@@ -49,3 +49,19 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
   id: SCPClothingOuterCoatLabRDOpened
   name: research director's lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: SCPClothingOuterCoatLabMD
+  name: medical director's lab coat
+  description: A coat that protects against minor chemical spills. It has a SCP logo on the chest, and purple stripes on the shoulders denoting it as an SCP Foundation labcoat, and blue trim to indicate the rank of Medical Director.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/OuterClothing/Coats/mdlabcoat.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/OuterClothing/Coats/mdlabcoat.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, SCPClothingOuterCoatLab]
+  id: SCPClothingOuterCoatLabMD
+  name: medical director's lab coat
