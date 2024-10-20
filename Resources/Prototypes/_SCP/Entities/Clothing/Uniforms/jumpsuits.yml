@@ -114,7 +114,7 @@
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/utilitysuit.rsi
 
 - type: entity
-  parent: ClothingUniformSCPUtility
+  parent: SCPClothingUniformUtility
   id: SCPClothingUniformSCPMaintenance
   name: maintenance coveralls
   description: The utility uniform of the SCP Foundation, made from an insulated material, with orange markings denoting maintenance.
@@ -127,7 +127,7 @@
         color: "#ff7f00"
 
 - type: entity
-  parent: ClothingUniformSCPUtility
+  parent: SCPClothingUniformUtility
   id: SCPClothingUniformLogistics
   name: logistics coveralls
   description: The utility uniform of the SCP Foundation, made from an insulated material, with brown markings denoting logistics.
