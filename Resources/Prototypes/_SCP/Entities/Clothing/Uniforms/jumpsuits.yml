@@ -48,9 +48,9 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: SCPClothingUniformSecurityLCZ
-  name: lcz guard uniform
-  description: A sterile white uniform. Currently issued to LCZ guard personnel.
+  id: SCPClothingUniformSecurity
+  name: guard uniform
+  description: A sterile white uniform. Currently issued to  guard personnel.
   components:
   - type: Sprite
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczguard.rsi
@@ -71,7 +71,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: SCPClothingUniformSecurityCommander
-  name: guard commander uniform
+  name: director of security's uniform
   description: A white tactical shirt, with a pair of black trousers with golden striping on the side, the shirt is covered in gold insignia, with an additional black color over the wrists. There's a golden badge and belt buckle. This is definitely the definition of prospertiy.
   components:
   - type: Sprite
@@ -81,9 +81,9 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: SCPClothingUniformSecurityHCZ
-  name: hcz guard uniform
-  description: A sterile white uniform. Currently issued to HCZ guard personnel.
+  id: SCPClothingUniformSecurityAlt
+  name: guard uniform
+  description: A sterile black uniform. Currently issued to some guard personnel.
   components:
   - type: Sprite
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/hczguard.rsi

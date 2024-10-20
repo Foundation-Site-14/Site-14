@@ -56,7 +56,7 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: SCPClothingOuterGuardComCoat
-  name: guard commander's coat
+  name: director of security's coat
   description: A heavy, black coat with synthetic fur on it.
   components:
   - type: Sprite
