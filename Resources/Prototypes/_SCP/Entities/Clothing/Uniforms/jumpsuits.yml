@@ -10,7 +10,7 @@
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/jumpsuit.rsi
 
 - type: entity
-  parent: ClothingUniformSCPJumpsuit
+  parent: SCPClothingUniformJumpsuit
   id: SCPClothingUniformMaintenanceJumpsuit
   name: maintenace jumpsuit
   description: A dark black uniform. This one seems to be of the Engineering department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
@@ -23,7 +23,7 @@
         color: "#ff7f00"
 
 - type: entity
-  parent: ClothingUniformSCPJumpsuit
+  parent: SCPClothingUniformJumpsuit
   id: SCPClothingUniformLogisticsJumpsuit
   name: logistics jumpsuit
   description: A dark black uniform. This one seems to be of the Logistics department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
