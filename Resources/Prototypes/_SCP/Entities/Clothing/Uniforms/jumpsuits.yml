@@ -10,7 +10,7 @@
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/jumpsuit.rsi
 
 - type: entity
-  parent: ClothingUniformSCPJumpsuit
+  parent: SCPClothingUniformJumpsuit
   id: SCPClothingUniformMaintenanceJumpsuit
   name: maintenace jumpsuit
   description: A dark black uniform. This one seems to be of the Engineering department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
@@ -23,7 +23,7 @@
         color: "#ff7f00"
 
 - type: entity
-  parent: ClothingUniformSCPJumpsuit
+  parent: SCPClothingUniformJumpsuit
   id: SCPClothingUniformLogisticsJumpsuit
   name: logistics jumpsuit
   description: A dark black uniform. This one seems to be of the Logistics department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
@@ -114,7 +114,7 @@
     sprite: _SCP/Clothing/Uniforms/Jumpsuit/utilitysuit.rsi
 
 - type: entity
-  parent: ClothingUniformSCPUtility
+  parent: SCPClothingUniformUtility
   id: SCPClothingUniformSCPMaintenance
   name: maintenance coveralls
   description: The utility uniform of the SCP Foundation, made from an insulated material, with orange markings denoting maintenance.
@@ -127,7 +127,7 @@
         color: "#ff7f00"
 
 - type: entity
-  parent: ClothingUniformSCPUtility
+  parent: SCPClothingUniformUtility
   id: SCPClothingUniformLogistics
   name: logistics coveralls
   description: The utility uniform of the SCP Foundation, made from an insulated material, with brown markings denoting logistics.
