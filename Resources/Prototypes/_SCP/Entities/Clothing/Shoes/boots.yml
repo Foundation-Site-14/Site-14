@@ -1,6 +1,6 @@
 ﻿- type: entity
   parent: ClothingShoesMilitaryBase
-  id: SCpClothingShoesBootsDutySec
+  id: SCPClothingShoesBootsDutySec
   name: duty boots
   description: Security combat boots for combat scenarios or combat situations. All combat, all the time.
   components:

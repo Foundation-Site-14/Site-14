@@ -1,0 +1,17 @@
+
+- type: gameMap
+  id: SCPDev
+  mapName: SCP Dev
+  mapPath: Maps/_SCP/dev_map.yml
+  minPlayers: 0
+  stations:
+    Dev:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "SCP Dev"
+        - type: StationJobs
+          overflowJobs:
+          - SCPSiteDirector
+          availableJobs:
+            SCPSiteDirector: [ -1, -1 ]
