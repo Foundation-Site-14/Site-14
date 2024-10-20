@@ -59,8 +59,8 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: SCPClothingUniformSecurityLCZSeargent
-  name: lcz seargent uniform
+  id: SCPClothingUniformSecuritySeargent
+  name: seargent uniform
   description: A sterile white uniform. Currently issued to LCZ seargents.
   components:
   - type: Sprite
