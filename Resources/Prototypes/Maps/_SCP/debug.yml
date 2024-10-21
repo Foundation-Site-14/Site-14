@@ -15,3 +15,4 @@
           - SCPSiteDirector
           availableJobs:
             SCPSiteDirector: [ -1, -1 ]
+            SCPSecurityGuard: [-1, -1]

@@ -1,9 +1,9 @@
 ﻿- type: job
   parent: SCPJobBase
-  id: SCPSiteDirector
-  name: scp-job-name-site-director
-  description: scp-job-description-site-director
-  playTimeTracker: SCPJobSiteDirector
+  id: SCPSecurityGuard
+  name: scp-job-name-security-guard
+  description: scp-job-description-security-guard
+  playTimeTracker: SCPJobSecurityGuard
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,32 +18,32 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearSiteDirector
-  icon: "SCPJobIconSiteDirector"
-  requireAdminNotify: true
+  startingGear: SCPGearSecurityGuard
+  icon: "SCPJobIconSecurityGuard"
   joinNotifyCrew: true
-# supervisors: scp-job-supervisors-scp-o5
+  supervisors: scp-job-supervisors-dos
   accessGroups:
   - Command
 
 - type: startingGear
-  id: SCPGearSiteDirector
+  id: SCPGearSecurityGuard
   equipment:
-    jumpsuit: SCPClothingUniformSuitTie
+    jumpsuit: SCPClothingUniformSecurity
     back: ClothingBackpackFilled
     shoes: SCPClothingShoesBootsDutySec
-    head: ClothingHeadHatCaptain
-    outerClothing: SCPClothingOuterSDCoat
-    id: SCPIDCardAdminLvl5 
-    ears: ClothingHeadsetCommand
+    head: SCPClothingHeadHelmetGuard
+    outerClothing: ClothingOuterSCPGuardMedArmor
+    id: SCPIDCardSecLvl3
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityFilled
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointSiteDirector
-  name: site director spawn point
+  id: SCPSpawnPointSecurityGuard
+  name: security guard spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPSiteDirector
+    job_id: SCPSecurityGuard
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
@@ -51,4 +51,4 @@
     - state: sitedirector
 
 - type: playTimeTracker
-  id: SCPJobSiteDirector
+  id: SCPJobSecurityGuard
