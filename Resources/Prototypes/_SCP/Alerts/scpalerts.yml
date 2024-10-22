@@ -1,0 +1,5 @@
+- type: alert
+  id: PocketDimension
+  icons: [ /Textures/_SCP/Interface/Actions/oldman.rsi/oldmanicon.png ]
+  name: scp-oldman-alert-pocketdimension-name
+  description: scp-oldman-alert-pocketdimension-desc

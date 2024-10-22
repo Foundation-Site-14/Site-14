@@ -1,0 +1,19 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  id: SCPPlayableBase
+  abstract: true
+  save: false
+  components:
+  - type: Stamina
+  - type: Damageable
+    damageContainer: Biological
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+  
+  
