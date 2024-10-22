@@ -50,23 +50,23 @@
   parent: ClothingUniformBase
   id: SCPClothingUniformSecurity
   name: guard uniform
-  description: A sterile white uniform. Currently issued to  guard personnel.
+  description: A sterile white uniform. Currently issued to guard personnel.
   components:
   - type: Sprite
-    sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczguard.rsi
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guard.rsi
   - type: Clothing
-    sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczguard.rsi
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guard.rsi
 
 - type: entity
   parent: ClothingUniformBase
   id: SCPClothingUniformSecuritySeargent
   name: seargent uniform
-  description: A sterile white uniform. Currently issued to LCZ seargents.
+  description: A sterile white uniform. Currently issued to seargents.
   components:
   - type: Sprite
-    sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczseargent.rsi
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/seargent.rsi
   - type: Clothing
-    sprite: _SCP/Clothing/Uniforms/Jumpsuit/lczseargent.rsi
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/seargent.rsi
 
 - type: entity
   parent: ClothingUniformBase
