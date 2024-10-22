@@ -1,0 +1,45 @@
+﻿- type: entity
+  parent: ClothingBeltStorageBase
+  id: SCPClothingBeltSecurity
+  name: security belt
+  description: Can hold security gear like handcuffs.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Belt/security.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Belt/security.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+        - SecBeltEquip
+        - Radio
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+      components:
+        - Stunbaton
+        - Handcuff
+        - Handcuff
+        - Handcuff
+        - MagazinePistol
+        - MagazinePistol
+  - type: ItemMapper
+    mapLayers:
+      flashbang:
+        whitelist:
+          components:
+          - FlashOnTrigger
+      stunbaton:
+        whitelist:
+          components:
+          - Stunbaton
+      tear_gas_grenade:
+        whitelist:
+          components:
+          - SmokeOnTrigger
+    sprite: Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
+

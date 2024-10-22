@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Foundation-19 at https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/maps/torch/icons/mob/onmob_under_solgov.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/maps/torch/icons/obj/obj_under_solgov.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/items/righthand_uniforms.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/items/lefthand_uniforms.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/maps/torch/icons/mob/onmob_accessories_solgov.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/maps/torch/icons/mob/onmob_accessories_solgov.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/maps/torch/icons/mob/onmob_accessories_solgov.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dept",
+      "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING-OPEN",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    }
+  ]
+}

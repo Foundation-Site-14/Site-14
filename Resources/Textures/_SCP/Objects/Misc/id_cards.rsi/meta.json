@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation // Icon Edit by FoxxoTrystan, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/card.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/items/lefthand.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/items/righthand.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "default"
+    },
+    {
+      "name": "securitylvl1"
+    },
+    {
+      "name": "securitylvl2"
+    },
+    {
+      "name": "securitylvl3"
+    },
+    {
+      "name": "securitylvl4"
+    },
+    {
+      "name": "securitylvl5"
+    },
+    {
+      "name": "sciencelvl1"
+    },
+    {
+      "name": "sciencelvl2"
+    },
+    {
+      "name": "sciencelvl3"
+    },
+    {
+      "name": "sciencelvl4"
+    },
+    {
+      "name": "sciencelvl5"
+    },
+    {
+      "name": "adminlvl1"
+    },
+    {
+      "name": "adminlvl2"
+    },
+    {
+      "name": "adminlvl3"
+    },
+    {
+      "name": "adminlvl4"
+    },
+    {
+      "name": "adminlvl5"
+    },
+    {
+      "name": "classd"
+    },
+    {
+      "name": "classdjan"
+    },
+    {
+      "name": "classdmed"
+    },
+    {
+      "name": "classdcook"
+    },
+    {
+      "name": "classdbot"
+    },
+    {
+      "name": "classdmine"
+    },
+    {
+      "name": "o5"
+    },
+    {
+      "name": "ci"
+    },
+    {
+      "name": "cilead"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

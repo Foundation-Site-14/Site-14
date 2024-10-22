@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by @ninruB#7795, based off tgstation\u0027s jackboots at commit https://github.com/tgstation/tgstation/commit/7e4e9d432d88981fb9bb463970c5b98ce85c0abe, https://github.com/ChromeFoxxity/Foundation-19/blob/a539c68f5ba6e37b81a6c9a6791052d41a595472/icons/obj/clothing/obj_feet.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a539c68f5ba6e37b81a6c9a6791052d41a595472/icons/obj/clothing/obj_feet.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a539c68f5ba6e37b81a6c9a6791052d41a595472/icons/obj/clothing/obj_feet.dmi, https://github.com/ChromeFoxxity/Foundation-19/blob/a539c68f5ba6e37b81a6c9a6791052d41a595472/icons/mob/onmob/onmob_feet.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-FEET",
+      "directions": 4
+    }
+  ]
+}
