@@ -1,8 +1,8 @@
 ﻿- type: department
   parent: SCPDepartmentBase
-  id: SCPCommandDept
-  name: Site Administration
-  description: scp-department-Command-description
+  id: SCPAdminDept
+  name: department-SCPAdmin
+  description: scp-department-admin-description
   color: "#334E6D"
   roles:
   - SCPSiteDirector
