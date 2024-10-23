@@ -1,0 +1,9 @@
+﻿- type: job
+  abstract: true
+  id: SCPJobBase
+  isSCP: true
+
+- type: department
+  abstract: true
+  id: SCPDepartmentBase
+  isSCP: true
