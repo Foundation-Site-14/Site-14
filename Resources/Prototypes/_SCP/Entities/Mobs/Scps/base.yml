@@ -15,5 +15,10 @@
     - Stun
     - KnockedDown
     - SlowedDown
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1999: Critical
+      2000: Dead
   
   

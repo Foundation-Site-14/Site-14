@@ -17,8 +17,8 @@ public sealed class CorrosivePuddleSystem : EntitySystem
 
         var puddleCoords = new EntityCoordinates(grid, position);
 
-        var parentPuddleId = SpawnAtPosition(holder.PocketPuddle,puddleCoords);
-        var childPuddleId = SpawnAtPosition(holder.PocketPuddle,Comp<TransformComponent>(puddleOwner).Coordinates);
+        var parentPuddleId = SpawnPuddle(puddleCoords, holder);
+        var childPuddleId = SpawnPuddle(Comp<TransformComponent>(puddleOwner).Coordinates,holder);
 
         var parentPuddle = Comp<CorrosivePuddleComponent>(parentPuddleId);
         var childPuddle = Comp<CorrosivePuddleComponent>(childPuddleId);
@@ -66,5 +66,12 @@ public sealed class CorrosivePuddleSystem : EntitySystem
             return default;
 
         return puddle.linkedPuddle;
+    }
+
+    private EntityUid SpawnPuddle(EntityCoordinates coords,PocketDimensionHolderComponent holder)
+    {
+        var puddle = SpawnAtPosition(holder.PocketPuddle, coords);
+        Comp<TransformComponent>(puddle).LocalRotation = Angle.Zero;
+        return puddle;
     }
 }
