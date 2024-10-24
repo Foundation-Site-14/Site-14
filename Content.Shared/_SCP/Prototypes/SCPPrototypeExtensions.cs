@@ -6,12 +6,12 @@ namespace Content.Shared._SCP.Prototypes;
 
 public static class SCPPrototypeExtensions
 {
-    public static bool FilterCM = true;
+    public static bool FilterSCP = true;
 
     public static IEnumerable<T> EnumerateSCP<T>(this IPrototypeManager prototypes) where T : class, IPrototype, ISCPSpecific
     {
         var protos = prototypes.EnumeratePrototypes<T>();
-        if (FilterCM)
+        if (FilterSCP)
             protos = protos.Where(p => p.IsSCP);
 
         return protos;
@@ -24,7 +24,7 @@ public static class SCPPrototypeExtensions
         if (!prototypes.TryIndex(id, out T? proto))
             return false;
 
-        if (FilterCM && !proto.IsSCP)
+        if (FilterSCP && !proto.IsSCP)
             return false;
 
         prototype = proto;
