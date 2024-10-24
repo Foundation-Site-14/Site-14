@@ -21,6 +21,24 @@
     },
     {
       "name": "sitedirector"
+    },
+    {
+      "name": "sec"
+    },
+    {
+      "name": "res"
+    },
+    {
+      "name": "guardcom"
+    },
+    {
+      "name": "dor"
+    },
+    {
+      "name": "dom"
+    },
+    {
+      "name": "logistics"
     }
   ]
 }
