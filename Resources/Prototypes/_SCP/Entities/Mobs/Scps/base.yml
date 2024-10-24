@@ -1,0 +1,24 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  id: SCPPlayableBase
+  abstract: true
+  save: false
+  components:
+  - type: Stamina
+  - type: Damageable
+    damageContainer: Biological
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1999: Critical
+      2000: Dead
+  
+  

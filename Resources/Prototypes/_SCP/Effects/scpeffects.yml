@@ -1,0 +1,13 @@
+- type: entity
+  id: OldManPuddle
+  name: corrosive puddle
+  description: Puddle of corrosive acid, maybe you shouldnt stick around too long
+  components:
+  - type: Sprite
+    sprite: _SCP/Effects/oldmanpuddle.rsi
+    drawdepth: FloorTiles
+    layers:
+    - state: puddle
+  - type: CorrosivePuddle
+  - type: Clickable
+  - type: InteractionOutline
