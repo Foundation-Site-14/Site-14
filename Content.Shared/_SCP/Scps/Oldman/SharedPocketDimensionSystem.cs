@@ -6,38 +6,36 @@ using Content.Shared.Mind;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
 namespace Content.Shared._SCP.Scps.Oldman;
 public sealed class SharedPocketDimensionSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    public const string pocketDimensionMapPath = "/Maps/_SCP/testpocket.yml";
     public override void Initialize()
     {
-        // SubscribeLocalEvent<PocketDimensionHolderComponent,ComponentStartup>(OnStartup);
-        //
-        // SubscribeLocalEvent<PocketDimensionHolderComponent, MeleeHitEvent>(OnSend);
-        //
-        // SubscribeLocalEvent<PocketDimensionInhabitantComponent, MobStateChangedEvent>(OnStateChange);
+        SubscribeLocalEvent<CorrosivePuddleComponent,InteractHandEvent>(OnTryExit);
+        SubscribeLocalEvent<PocketDimensionInhabitantComponent, EnterPocketDimensionEvent>(OnSend);
+        SubscribeLocalEvent<PocketDimensionInhabitantComponent, DieInPocketDimensionEvent>(OnStateChange);
     }
 
     public override void Update(float frameTime)
@@ -53,70 +51,21 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
             }
         }
     }
-
-    //Dimension Setup
-    private void OnStartup(EntityUid owner, PocketDimensionHolderComponent comp, ComponentStartup args)
-    {
-        if (comp.pocketDimensionGrid == null)
-        {
-            var map = _mapManager.GetMapEntityId(_mapManager.CreateMap());
-            _metaData.SetEntityName(map, "Pocket Dimension");
-
-            var grids = _map.LoadMap(Comp<MapComponent>(map).MapId, pocketDimensionMapPath);
-            if (grids.Count > 0)
-            {
-                _metaData.SetEntityName(grids[0], "Pocket Dimension Grid");
-                comp.pocketDimensionGrid = grids[0];
-            }
-            comp.pocketDimensionMap = map;
-        }
-    }
-
-    //Enter Pocket Dimension
+    //Enter Pocket Dimension TODO
 
     //Get Taken to Pocket Dimension
-    private void OnSend(EntityUid owner, PocketDimensionHolderComponent comp, MeleeHitEvent args)
-    {
-        if (comp.pocketDimensionGrid == null)
-            return;
-
-        foreach (var entity in args.HitEntities)
-        {
-            if (HasComp<PocketDimensionInhabitantComponent>(entity))
-                return;
-
-            if (!HasComp<HumanoidAppearanceComponent>(entity)) //Better check for a player
-                return;
-
-            if (HasComp<PocketDimensionHolderComponent>(entity))
-                return;
-
-            if (!TryComp<TransformComponent>(entity, out var transform))
-                return;
-
-            var dweller = AddComp<PocketDimensionInhabitantComponent>(entity);
-            EnterPocketDimension(owner,dweller,owner,comp,comp.pocketDimensionGrid.Value);
-        }
-    }
-
-    private void EnterPocketDimension(
-        EntityUid inhabitantUid, PocketDimensionInhabitantComponent inhabitant,
-        EntityUid dimensionHolderUid, PocketDimensionHolderComponent dimensionHolder,
-        EntityUid gridId)
+    private void OnSend(EntityUid inhabitant, PocketDimensionInhabitantComponent component, EnterPocketDimensionEvent e)
     {
 
-        inhabitant.dimensionOwner = dimensionHolderUid;
-        var spawnVectors = Vector2.Zero; //Change once corrosive puddles work
-
-        _transform.SetCoordinates(inhabitantUid, new EntityCoordinates(gridId, spawnVectors));
-
-        if (!_mind.TryGetMind(inhabitantUid, out var _, out var mind))
+        if (!_mind.TryGetMind(inhabitant, out var _, out var mind))
             return;
         if(mind.Session==null)
             return;
+        if(!TryComp<PocketDimensionHolderComponent>(component.dimensionOwner, out var holder))
+            return;
 
-        _alerts.ShowAlert(inhabitantUid, AlertType.PocketDimension);
-        _audio.PlayGlobal(dimensionHolder.laughSound, mind.Session);
+        _alerts.ShowAlert(inhabitant, AlertType.PocketDimension);
+        _audio.PlayGlobal(holder.laughSound, mind.Session);
     }
 
     //Take Damage in Pocket Dimension
@@ -134,14 +83,26 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
     }
 
     //Die in pocket dimension
-    private void OnStateChange(EntityUid uid, PocketDimensionInhabitantComponent comp, MobStateChangedEvent args)
+    private void OnStateChange(EntityUid uid, PocketDimensionInhabitantComponent comp, DieInPocketDimensionEvent args)
     {
-        if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)
+        if (!TryComp<PocketDimensionHolderComponent>(comp.dimensionOwner, out var dimensionOwner))
+            return;
+        _audio.PlayPvs(dimensionOwner.puddleSound, uid);
+        QueueDel(uid);
+    }
+
+    private void OnTryExit(EntityUid uid, CorrosivePuddleComponent comp, InteractHandEvent args)
+    {
+        if(!HasComp<CorrosivePuddleComponent>(uid))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(3f), new EscapePocketDimensionDoAfterEvent(),args.User,args.Target)
         {
-            if (!TryComp<PocketDimensionHolderComponent>(comp.dimensionOwner, out var dimensionOwner))
-                return;
-            _audio.PlayPvs(dimensionOwner.puddleSound, uid);
-            QueueDel(uid);
-        }
+            BreakOnUserMove = true,
+            BreakOnDamage = false
+        };
+
+        if(_doAfter.TryStartDoAfter(doAfterArgs))
+            _popup.PopupPredicted(Loc.GetString("scp-oldman-escapepocket"),uid,uid);
     }
 }
