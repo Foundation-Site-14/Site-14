@@ -1,0 +1,55 @@
+﻿
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformJunResearchSuit
+  name: researcher's formal uniform
+  description: A white dress shirt, with some khahki slacks, and a purple tie in science colors, smells like chemicals.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/junresearcher.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/junresearcher.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformSenResearchSuit
+  name: senior researcher's formal uniform
+  description: A purple dress shirt, with some khahki slacks, smells like chemicals.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/senresearcher.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/senresearcher.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformMedicalDirectorTurtleneck
+  name: director of medical's turtleneck
+  description: It's a turtleneck worn by those with the experience to be Medical Director. It provides minor biological protection.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/medicaldirector.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/medicaldirector.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformResearchDirectorTurtleneck
+  name: director of research's turtleneck
+  description: It's a turtleneck worn by those with the experience to be Research Director. It provides minor biological protection.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/researchdirector.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/researchdirector.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformSuitTie
+  name: suit and tie
+  description: A rather sterile looking suit and tie.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Suits/suit_tie.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Suits/suit_tie.rsi

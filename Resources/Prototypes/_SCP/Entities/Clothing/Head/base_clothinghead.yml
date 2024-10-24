@@ -1,0 +1,20 @@
+﻿- type: entity
+  abstract: true
+  parent: [ClothingHeadBase, BaseFoldable]
+  id: SCPClothingHeadBaseFoldable
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-verb
+    foldVerbText: fold-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "unfoldedLayer" ]
+      - state: icon-open
+        map: ["foldedLayer"]
+        visible: false

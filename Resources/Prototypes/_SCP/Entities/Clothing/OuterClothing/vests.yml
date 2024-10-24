@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterSCPGuardMedArmor
+  name: security vest
+  description: A heavy armored vest. Worn by facility security, it has some durathread plating in it to make it durable against melee, sadly not much else though.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/OuterClothing/Vests/guardarmor.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/OuterClothing/Vests/guardarmor.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
