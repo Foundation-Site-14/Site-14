@@ -22,10 +22,6 @@
       components:
         - Stunbaton
         - Handcuff
-        - Handcuff
-        - Handcuff
-        - MagazinePistol
-        - MagazinePistol
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -42,4 +38,19 @@
           - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: entity
+
+  id: SCPClothingBeltSecurityFilled
+  parent: SCPClothingBeltSecurity
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: GrenadeFlashBang
+      - id: Stunbaton
+      - id: Handcuffs
+      - id: Handcuffs
+      - id: MagazinePistol
+      - id: Handcuffs
+
 

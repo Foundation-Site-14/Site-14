@@ -1,9 +1,0 @@
-﻿- type: department
-  parent: SCPDepartmentBase
-  id: SCPSecurityDept
-  name: security department
-  description: scp-department-Security-description
-  color: "#efefef"
-  roles:
-  - SCPSecurityGuard
-  primary: false
