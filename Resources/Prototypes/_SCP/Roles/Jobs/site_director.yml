@@ -1,0 +1,54 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPSiteDirector
+  name: scp-job-name-site-director
+  description: scp-job-description-site-director
+  playTimeTracker: SCPJobSiteDirector
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearSiteDirector
+  icon: "SCPJobIconSiteDirector"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-scp-o5
+  accessGroups:
+  - Command
+
+- type: startingGear
+  id: SCPGearSiteDirector
+  equipment:
+    jumpsuit: SCPClothingUniformSuitTie
+    back: ClothingBackpackFilled
+    shoes: SCPClothingShoesBootsDutySec
+    head: ClothingHeadHatFedoraBlack
+    outerClothing: SCPClothingOuterSDCoat
+    id: SCPIDCardAdminLvl5 
+    ears: ClothingHeadsetCommand
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointSiteDirector
+  name: site director spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPSiteDirector
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: sitedirector
+
+- type: playTimeTracker
+  id: SCPJobSiteDirector

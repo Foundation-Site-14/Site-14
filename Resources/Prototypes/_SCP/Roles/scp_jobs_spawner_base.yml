@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: SCPSpawnPointJobBase
+  parent: MarkerBase
+  abstract: true
+  suffix: Job Spawn
+  description: A Site-14 job spawner. Used for roundstart and late joins.
+  components:
+  - type: SpawnPoint
+    spawn_type: Job
+  - type: Sprite
+    sprite: _SCP/Markers/jobs.rsi
+
