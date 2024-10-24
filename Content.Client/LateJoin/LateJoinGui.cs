@@ -5,6 +5,7 @@ using Content.Client.GameTicking.Managers;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Preferences;
+using Content.Shared._SCP.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Preferences;
@@ -168,7 +169,7 @@ namespace Content.Client.LateJoin
                 };
 
                 var firstCategory = true;
-                var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>().ToArray();
+                var departments = _prototypeManager.EnumerateSCP<DepartmentPrototype>().ToArray();
                 Array.Sort(departments, DepartmentUIComparer.Instance);
 
                 _jobButtons[id] = new Dictionary<string, List<JobButton>>();

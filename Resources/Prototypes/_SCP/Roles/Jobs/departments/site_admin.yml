@@ -1,9 +1,0 @@
-﻿- type: department
-  parent: SCPDepartmentBase
-  id: SCPCommand
-  name: department-SCPCommand
-  description: scp-department-Command-description
-  color: "#334E6D"
-  roles:
-  - SCPSiteDirector
-  primary: false

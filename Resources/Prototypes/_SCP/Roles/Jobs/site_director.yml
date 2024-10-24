@@ -22,33 +22,33 @@
   icon: "SCPJobIconSiteDirector"
   requireAdminNotify: true
   joinNotifyCrew: true
-# supervisors: scp-job-supervisors-scp-o5
+  supervisors: scp-job-supervisors-scp-o5
   accessGroups:
   - Command
 
 - type: startingGear
   id: SCPGearSiteDirector
   equipment:
-    jumpsuit: 
-    back: 
-    shoes: 
-    head: 
-    outerClothing: 
+    jumpsuit: SCPClothingUniformSuitTie
+    back: ClothingBackpackFilled
+    shoes: SCPClothingShoesBootsDutySec
+    head: ClothingHeadHatFedoraBlack
+    outerClothing: SCPClothingOuterSDCoat
     id: SCPIDCardAdminLvl5 
-    ears: 
+    ears: ClothingHeadsetCommand
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointCommandingOfficer
+  id: SCPSpawnPointSiteDirector
   name: site director spawn point
   components:
   - type: SpawnPoint
-    job_id: CMCommandingOfficer
+    job_id: SCPSiteDirector
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
-      state: green43
-    - state: captain
+      state: green
+    - state: sitedirector
 
 - type: playTimeTracker
   id: SCPJobSiteDirector
