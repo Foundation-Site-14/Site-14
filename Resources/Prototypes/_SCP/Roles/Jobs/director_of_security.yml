@@ -1,0 +1,55 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPDirectorOfSecurity
+  name: scp-job-name-security-director
+  description: scp-job-description-security-director
+  playTimeTracker: SCPJobDirectorOfSecurity
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearDirectorOfSecurity
+  icon: "SCPJobIconDirectorOfSecurity"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-sd
+  accessGroups:
+  - Command
+  - Security
+
+- type: startingGear
+  id: SCPGearDirectorOfSecurity
+  equipment:
+    jumpsuit: SCPClothingUniformSecurityCommander
+    back: ClothingBackpackFilled
+    shoes: SCPClothingShoesBootsDutySec
+    outerClothing: SCPClothingOuterGuardComCoat
+    id: SCPIDCardAdminLvl5
+    ears: ClothingHeadsetCommand
+    pocket1: WeaponRevolverMateba
+    belt: SCPClothingBeltSecurityFilled
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointDirectorOfSecurity
+  name: director of security spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPDirectorOfSecurity
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: dos
+
+- type: playTimeTracker
+  id: SCPJobDirectorOfSecurity

@@ -5,3 +5,7 @@ scp-job-supervisors-scp-o5 = The O5 Council.
 scp-job-name-security-guard = Security Guard
 scp-job-description-security-guard = = A Facility guard in charge of handling day to day security operations.
 scp-job-supervisors-dos = The Director of Security
+
+scp-job-name-security-director = Director of Security
+scp-job-description-security-guard = = The Director of Security is in charge of keeping the site secure.
+scp-job-supervisors-sd = The Site Director

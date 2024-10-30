@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: ClothingBeltStorageBase
   id: SCPClothingBeltSecurity
-  name: security belt
+  name: guards belt
   description: Can hold security gear like handcuffs.
   components:
   - type: Sprite
@@ -38,8 +38,8 @@
           - SmokeOnTrigger
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
-  - type: entity
-
+  
+- type: entity
   id: SCPClothingBeltSecurityFilled
   parent: SCPClothingBeltSecurity
   suffix: Filled
@@ -51,6 +51,3 @@
       - id: Handcuffs
       - id: Handcuffs
       - id: MagazinePistol
-      - id: Handcuffs
-
-

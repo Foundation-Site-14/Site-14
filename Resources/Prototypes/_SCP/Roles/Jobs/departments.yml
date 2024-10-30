@@ -5,6 +5,7 @@
   description: scp-department-Security-description
   color: "#efefef"
   roles:
+  - SCPDirectorOfSecurity
   - SCPSecurityGuard
   primary: false
 
@@ -15,5 +16,6 @@
   description: scp-department-admin-description
   color: "#334E6D"
   roles:
+  - SCPDirectorOfSecurity
   - SCPSiteDirector
   primary: false

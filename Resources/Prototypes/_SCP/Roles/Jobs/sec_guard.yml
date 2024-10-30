@@ -49,7 +49,7 @@
     layers:
     - sprite: Markers/jobs.rsi
       state: green
-    - state: sitedirector
+    - state: sec
 
 - type: playTimeTracker
   id: SCPJobSecurityGuard
