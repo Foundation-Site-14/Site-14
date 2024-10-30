@@ -29,10 +29,22 @@
       "name": "custodian"
     },
     {
-      "name": "logistics_tech"
+      "name": "log"
     },
     {
       "name": "dor"
+    },
+    {
+      "name": "classd"
+    },
+    {
+      "name": "doc"
+    },
+    {
+      "name": "qm"
+    },
+    {
+      "name": "dom"
     }
   ]
 }

@@ -6,3 +6,15 @@ scp-department-security-description = The Security Department is responsible for
 
 department-SCPResearchDept = Research Department
 scp-department-research-description = The Research department is responsible for studying all contained and new SCP objects.
+
+department-SCPMedicalDept = Medical Department
+scp-department-civilian-description = Does this need a description?
+
+department-SCPCivilian = Civilian
+scp-department-civilian-description = Does this need a description?
+
+department-SCPLogisticsDept = Logistics Department
+scp-department-civilian-description = Does this need a description?
+
+department-SCPMaintenanceDept = Maintenance Department
+scp-department-civilian-description = Does this need a description?

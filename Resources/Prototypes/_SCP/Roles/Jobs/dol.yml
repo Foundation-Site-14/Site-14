@@ -1,9 +1,10 @@
 ﻿- type: job
+- type: job
   parent: SCPJobBase
-  id: SCPResearchDirector
-  name: scp-job-name-research-director
-  description: scp-job-description-research-director
-  playTimeTracker: SCPJobResearchDirector
+  id: SCPLogisticsDirector
+  name: scp-job-name-logistics-director
+  description: scp-job-description-logistics-director
+  playTimeTracker: SCPJobLogisticsDirector
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,31 +19,30 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearResearchDirector
-  icon: "SCPJobIconResearchDirector"
+  startingGear: SCPGearLogisticsDirector
+  icon: "SCPJobIconLogisticsDirector"
   joinNotifyCrew: true
   supervisors: scp-job-supervisors-sd
   accessGroups:
-  - Research
+  - Cargo
 
 - type: startingGear
-  id: SCPGearResearchDirector
+  id: SCPGearLogisticsDirector
   equipment:
-    jumpsuit: SCPClothingUniformResearchDirectorTurtleneck
+    jumpsuit: SCPClothingUniformLogisticsJumpsuit
     back: ClothingBackpackFilled
-    shoes: ClothingShoesBootsLaceup
-    outerClothing: SCPClothingOuterCoatLabRD
+    shoes: SCPClothingShoesBootsDutySec
     id: SCPIDCardAdminLvl4
-    ears: ClothingHeadsetResearch
+    ears: ClothingHeadsetCargo
     belt: BoxFolderClipboard
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointResearchDirector
-  name: ResearchDirector spawn point
+  id: SCPSpawnPointLogisticsDirector
+  name: LogisticsDirector spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPResearchDirector
+    job_id: SCPLogisticsDirector
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
@@ -50,4 +50,4 @@
     - state: dor
 
 - type: playTimeTracker
-  id: SCPJobResearchDirector
+  id: SCPJobLogisticsDirector

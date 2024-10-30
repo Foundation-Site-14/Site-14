@@ -1,9 +1,10 @@
 ﻿- type: job
+- type: job
   parent: SCPJobBase
-  id: SCPSecuritySergeant
-  name: scp-job-name-security-sergeant
-  description: scp-job-description-security-sergeant
-  playTimeTracker: SCPJobSecuritySergeant
+  id: SCPLogistician
+  name: scp-job-name-logistician
+  description: scp-job-description-logistician
+  playTimeTracker: SCPJobLogistician
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,38 +19,35 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearSecuritySergeant
-  icon: "SCPJobIconSecurityGuard"
+  startingGear: SCPGearLogistician
+  icon: "SCPJobIconLogistician"
   joinNotifyCrew: true
-  supervisors: scp-job-supervisors-dos
+  supervisors: scp-job-supervisors-sd
   accessGroups:
-  - Security
+  - Cargo
 
 - type: startingGear
-  id: SCPGearSecuritySergeant
+  id: SCPGearLogistician
   equipment:
-    jumpsuit: SCPClothingUniformSecuritySeargent
+    jumpsuit: SCPClothingUniformLogistics
     back: ClothingBackpackFilled
     shoes: SCPClothingShoesBootsDutySec
-    head: SCPClothingHeadHelmetGuard
-    outerClothing: ClothingOuterSCPGuardMedArmor
-    id: SCPIDCardSecLvl4
-    ears: ClothingHeadsetSecurity
-    pocket1: WeaponPistolMk58
-    belt: SCPClothingBeltSecurityFilled
+    id: SCPIDCardAdminLvl2
+    ears: ClothingHeadsetCargo
+    belt: BoxFolderClipboard
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointSecurityGuardSergeant
-  name: ssergeant ecurity guard spawn point
+  id: SCPSpawnPointLogistician
+  name: logistician spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPSecuritySergeant
+    job_id: SCPLogistician
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
       state: green
-    - state: sec
+    - state: logistics
 
 - type: playTimeTracker
-  id: SCPJobSecuritySergeant
+  id: SCPJobLogistician

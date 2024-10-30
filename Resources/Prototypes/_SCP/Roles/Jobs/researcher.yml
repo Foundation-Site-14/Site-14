@@ -39,7 +39,7 @@
 - type: entity
   parent: SCPSpawnPointJobBase
   id: SCPSpawnPointResearcher
-  name: researcher spawn point
+  name: foundation researcher spawn point
   components:
   - type: SpawnPoint
     job_id: SCPResearcher

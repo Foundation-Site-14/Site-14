@@ -1,9 +1,9 @@
 ﻿- type: job
   parent: SCPJobBase
-  id: SCPResearchDirector
-  name: scp-job-name-research-director
-  description: scp-job-description-research-director
-  playTimeTracker: SCPJobResearchDirector
+  id: SCPDoctor
+  name: scp-job-name-doctor
+  description: scp-job-description-doctor
+  playTimeTracker: SCPJobDoctor
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,36 +18,36 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearResearchDirector
-  icon: "SCPJobIconResearchDirector"
+  startingGear: SCPGearDoctor
+  icon: "SCPJobIconDoctor"
   joinNotifyCrew: true
-  supervisors: scp-job-supervisors-sd
+  supervisors: scp-job-supervisors-dor
   accessGroups:
-  - Research
+  - Medical
 
 - type: startingGear
-  id: SCPGearResearchDirector
+  id: SCPGearDoctor
   equipment:
-    jumpsuit: SCPClothingUniformResearchDirectorTurtleneck
+    jumpsuit: SCPClothingUniformSuitTie
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup
-    outerClothing: SCPClothingOuterCoatLabRD
-    id: SCPIDCardAdminLvl4
-    ears: ClothingHeadsetResearch
+    outerClothing: SCPClothingOuterCoatLab
+    id: SCPIDCardSciLvl3
+    ears: ClothingHeadsetMedical
     belt: BoxFolderClipboard
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointResearchDirector
-  name: ResearchDirector spawn point
+  id: SCPSpawnPointDoctor
+  name: foundation doctor spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPResearchDirector
+    job_id: SCPDoctor
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
       state: green
-    - state: dor
+    - state: doctor
 
 - type: playTimeTracker
-  id: SCPJobResearchDirector
+  id: SCPJobDoctor
