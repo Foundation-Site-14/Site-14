@@ -1,5 +1,4 @@
 ﻿- type: job
-- type: job
   parent: SCPJobBase
   id: SCPLogistician
   name: scp-job-name-logistician
