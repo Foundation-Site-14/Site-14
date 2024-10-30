@@ -33,7 +33,7 @@
     shoes: ClothingShoesBootsLaceup
     outerClothing: SCPClothingOuterCoatLabRD
     id: SCPIDCardAdminLvl4
-    ears: ClothingHeadsetResearch
+    ears: ClothingHeadsetScience
     belt: BoxFolderClipboard
 
 - type: entity
