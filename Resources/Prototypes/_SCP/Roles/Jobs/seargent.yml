@@ -3,7 +3,7 @@
   id: SCPSecuritySergeant
   name: scp-job-name-security-guard-sergeant
   description: scp-job-description-security-guard-sergeant
-  playTimeTracker: SCPJobSecurityGuard
+  playTimeTracker: SCPJobSecuritySergeant
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
