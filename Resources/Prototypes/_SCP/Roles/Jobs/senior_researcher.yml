@@ -1,9 +1,9 @@
 ﻿- type: job
   parent: SCPJobBase
-  id: SCPResearchDirector
-  name: scp-job-name-research-director
-  description: scp-job-description-research-director
-  playTimeTracker: SCPJobResearchDirector
+  id: SCPSeniorResearcher
+  name: scp-job-name-senior-researcher
+  description: scp-job-description-senior-researcher
+  playTimeTracker: SCPJobSeniorResearcher
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,36 +18,36 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearResearchDirector
-  icon: "SCPJobIconResearchDirector"
+  startingGear: SCPGearSeniorResearcher
+  icon: "SCPJobIconResearcher"
   joinNotifyCrew: true
-  supervisors: scp-job-supervisors-sd
+  supervisors: scp-job-supervisors-dor
   accessGroups:
   - Research
 
 - type: startingGear
-  id: SCPGearResearchDirector
+  id: SCPGearSeniorResearcher
   equipment:
-    jumpsuit: SCPClothingUniformResearchDirectorTurtleneck
+    jumpsuit: SCPClothingUniformSenResearchSuit
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup
-    outerClothing: SCPClothingOuterCoatLabRD
-    id: SCPIDCardAdminLvl5
+    outerClothing: SCPClothingOuterCoatLabSci
+    id: SCPIDCardSciLvl4
     ears: ClothingHeadsetResearch
     belt: BoxFolderClipboard
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointResearchDirector
-  name: ResearchDirector spawn point
+  id: SCPSpawnPointSeniorResearcher
+  name: senior researcher spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPResearchDirector
+    job_id: SCPSeniorResearcher
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
       state: green
-    - state: dor
+    - state: res
 
 - type: playTimeTracker
-  id: SCPJobResearchDirector
+  id: SCPJobSeniorResearcher

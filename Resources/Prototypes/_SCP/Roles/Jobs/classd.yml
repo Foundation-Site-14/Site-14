@@ -1,9 +1,9 @@
 ﻿- type: job
   parent: SCPJobBase
-  id: SCPResearcher
-  name: scp-job-name-researcher
-  description: scp-job-description-researcher
-  playTimeTracker: SCPJobResearcher
+  id: SCPClassD
+  name: scp-job-name-class-d
+  description: scp-job-description-class-d
+  playTimeTracker: SCPJobClassD
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,36 +18,31 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearResearcher
-  icon: "SCPJobIconResearcher"
+  startingGear: SCPGearClassD
+  icon: "SCPJobIconSecurityGuard"
   joinNotifyCrew: true
-  supervisors: scp-job-supervisors-dor
+  supervisors: scp-job-supervisors-dos
   accessGroups:
-  - Research
+  - Security
 
 - type: startingGear
-  id: SCPGearResearcher
+  id: SCPGearClassD
   equipment:
-    jumpsuit: SCPClothingUniformJunResearchSuit
-    back: ClothingBackpackFilled
-    shoes: ClothingShoesBootsLaceup
-    outerClothing: SCPClothingOuterCoatLabSci
-    id: SCPIDCardSciLvl3
-    ears: ClothingHeadsetResearch
-    belt: BoxFolderClipboard
+    jumpsuit: SCPClothingUniformClassD
+    shoes: ClothingShoesColorWhite
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointResearcher
-  name: researcher spawn point
+  id: SCPSpawnPointClassD
+  name: ssergeant ecurity guard spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPResearcher
+    job_id: SCPClassD
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
       state: green
-    - state: res
+    - state: classd
 
 - type: playTimeTracker
-  id: SCPJobResearcher
+  id: SCPJobClassD

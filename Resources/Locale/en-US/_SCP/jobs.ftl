@@ -14,5 +14,27 @@ scp-job-description-security-guard = = The Director of Security is in charge of 
 scp-job-supervisors-sd = The Site Director
 
 scp-job-name-researcher = Researcher
-scp-job-description-security-guard = = A researcher.
+scp-job-description-researcher = = A researcher.
 scp-job-supervisors-dor = The Director of Research
+
+scp-job-name-senior-researcher = Senior Researcher
+scp-job-description-researcher = = A senior researcher.
+
+scp-job-name-research-director = Director of Research
+scp-job-description-research-director = = A researcher's boss.
+
+scp-job-name-medical-director = Director of Medical
+scp-job-description-research-director = = A doctors's boss.
+
+scp-job-name-doctor = Medical Doctor
+scp-job-description-director = = A medical doctor.
+scp-job-supervisors-dom = The Director of Medical
+
+scp-job-name-medical-director = Director of Medical
+scp-job-description-research-director = = A doctors's boss.
+
+scp-job-name-doctor = Medical Doctor
+scp-job-description-director = = A medical doctor.
+
+scp-job-name-class-d = Class-D
+scp-job-description-director = = A class-d.
