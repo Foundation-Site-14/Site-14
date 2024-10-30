@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "Scientist"
+      "name": "res"
     },
     {
       "name": "security"
@@ -30,6 +30,9 @@
     },
     {
       "name": "logistics_tech"
+    },
+    {
+      "name": "dor"
     }
   ]
 }

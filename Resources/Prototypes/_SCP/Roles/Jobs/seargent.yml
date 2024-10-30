@@ -1,8 +1,8 @@
 ﻿- type: job
   parent: SCPJobBase
-  id: SCPSecurityGuard
-  name: scp-job-name-security-guard
-  description: scp-job-description-security-guard
+  id: SCPSecuritySergeant
+  name: scp-job-name-security-guard-sergeant
+  description: scp-job-description-security-guard-sergeant
   playTimeTracker: SCPJobSecurityGuard
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
@@ -18,7 +18,7 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearSecurityGuard
+  startingGear: SCPGearSecurityGuardSergeant
   icon: "SCPJobIconSecurityGuard"
   joinNotifyCrew: true
   supervisors: scp-job-supervisors-dos
@@ -26,25 +26,25 @@
   - Security
 
 - type: startingGear
-  id: SCPGearSecurityGuard
+  id: SCPGearSecurityGuardSergeant
   equipment:
-    jumpsuit: SCPClothingUniformSecurity
+    jumpsuit: SCPClothingUniformSecuritySeargent
     back: ClothingBackpackFilled
     shoes: SCPClothingShoesBootsDutySec
     head: SCPClothingHeadHelmetGuard
     outerClothing: ClothingOuterSCPGuardMedArmor
-    id: SCPIDCardSecLvl3
+    id: SCPIDCardSecLvl4
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58
     belt: SCPClothingBeltSecurityFilled
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointSecurityGuard
-  name: security guard spawn point
+  id: SCPSpawnPointSecurityGuardSergeant
+  name: ssergeant ecurity guard spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPSecurityGuard
+    job_id: SCPSecurityGuardSergeant
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
@@ -52,4 +52,4 @@
     - state: sec
 
 - type: playTimeTracker
-  id: SCPJobSecurityGuard
+  id: SCPJobSecuritySergeant
