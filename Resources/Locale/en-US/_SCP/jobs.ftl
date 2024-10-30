@@ -6,8 +6,8 @@ scp-job-name-security-guard = Security Guard
 scp-job-description-security-guard = = A Facility guard in charge of handling day to day security operations.
 scp-job-supervisors-dos = The Director of Security
 
-scp-job-name-security-guard-sergeant = Security Sergeant
-scp-job-description-security-guard-sergeant = = A Facility guard in charge of managing the guards.
+scp-job-name-security-sergeant = Security Sergeant
+scp-job-description-security-sergeant = = A supervisor guard in charge of managing the guards.
 
 scp-job-name-security-director = Director of Security
 scp-job-description-security-guard = = The Director of Security is in charge of keeping the site secure.

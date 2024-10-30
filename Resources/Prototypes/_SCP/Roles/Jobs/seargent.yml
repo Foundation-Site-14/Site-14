@@ -1,8 +1,8 @@
 ﻿- type: job
   parent: SCPJobBase
   id: SCPSecuritySergeant
-  name: scp-job-name-security-guard-sergeant
-  description: scp-job-description-security-guard-sergeant
+  name: scp-job-name-security-sergeant
+  description: scp-job-description-security-sergeant
   playTimeTracker: SCPJobSecuritySergeant
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
@@ -18,7 +18,7 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearSecurityGuardSergeant
+  startingGear: SCPGearSecuritySergeant
   icon: "SCPJobIconSecurityGuard"
   joinNotifyCrew: true
   supervisors: scp-job-supervisors-dos
@@ -26,7 +26,7 @@
   - Security
 
 - type: startingGear
-  id: SCPGearSecurityGuardSergeant
+  id: SCPGearSecuritySergeant
   equipment:
     jumpsuit: SCPClothingUniformSecuritySeargent
     back: ClothingBackpackFilled
@@ -44,7 +44,7 @@
   name: ssergeant ecurity guard spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPSecurityGuardSergeant
+    job_id: SCPSecuritySergeant
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
