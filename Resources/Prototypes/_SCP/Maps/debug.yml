@@ -1,7 +1,7 @@
 - type: gameMap
   id: SCPDev
   mapName: SCP Dev
-  mapPath: Maps/_SCP/dev_map.yml
+  mapPath: /Maps/_SCP/dev_map.yml
   minPlayers: 0
   stations:
     Dev:
