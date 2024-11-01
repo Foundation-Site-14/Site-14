@@ -1,7 +1,6 @@
 ﻿- type: department
   parent: SCPDepartmentBase
   id: SCPSecurityDept
-  name: security department
   description: scp-department-Security-description
   color: "#efefef"
   roles:
@@ -12,7 +11,6 @@
 - type: department
   parent: SCPDepartmentBase
   id: SCPAdminDept
-  name: department-SCPAdmin
   description: scp-department-admin-description
   color: "#334E6D"
   roles:
@@ -24,7 +22,6 @@
 - type: department
   parent: SCPDepartmentBase
   id: SCPResearchDept
-  name: department-SCPResearch
   description: scp-department-admin-description
   color: "#c96dbf"
   roles:
@@ -35,7 +32,6 @@
 - type: department
   parent: SCPDepartmentBase
   id: SCPCivilian
-  name: department-SCPCivilian
   description: scp-department-admin-description
   color: "#9fed58"
   roles:
@@ -45,7 +41,6 @@
 - type: department
   parent: SCPDepartmentBase
   id: SCPMedicalDept
-  name: department-SCPMedical
   description: scp-department-admin-description
   color: "#5b97bc"
   roles:
@@ -56,7 +51,6 @@
 - type: department
   parent: SCPDepartmentBase
   id: SCPLogisticsDept
-  name: department-SCPLogistics
   description: scp-department-admin-description
   color: "#b18644"
   roles:
@@ -67,7 +61,6 @@
 - type: department
   parent: SCPDepartmentBase
   id: SCPMaintenanceDept
-  name: department-SCPMaintenance
   description: scp-department-admin-description
   color: "#f39f27"
   roles:
