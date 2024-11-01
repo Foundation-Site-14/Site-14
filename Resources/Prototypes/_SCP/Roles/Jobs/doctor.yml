@@ -1,0 +1,53 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPDoctor
+  name: scp-job-name-doctor
+  description: scp-job-description-doctor
+  playTimeTracker: SCPJobDoctor
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearDoctor
+  icon: "SCPJobIconDoctor"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-dor
+  accessGroups:
+  - Medical
+
+- type: startingGear
+  id: SCPGearDoctor
+  equipment:
+    jumpsuit: SCPClothingUniformSuitTie
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: SCPClothingOuterCoatLab
+    id: SCPIDCardSciLvl3
+    ears: ClothingHeadsetMedical
+    belt: BoxFolderClipboard
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointDoctor
+  name: foundation doctor spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPDoctor
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: doctor
+
+- type: playTimeTracker
+  id: SCPJobDoctor

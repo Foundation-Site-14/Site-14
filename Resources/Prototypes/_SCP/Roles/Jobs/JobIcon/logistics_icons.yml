@@ -1,0 +1,13 @@
+﻿- type: statusIcon
+  parent: SCPJobIcon
+  id: SCPJobIconLogistician
+  icon:
+    sprite: /Textures/_SCP/Interface/job_icons.rsi
+    state: log
+
+- type: statusIcon
+  parent: SCPJobIcon
+  id: SCPJobIconLogisticsDirector
+  icon:
+    sprite: /Textures/_SCP/Interface/job_icons.rsi
+    state: qm

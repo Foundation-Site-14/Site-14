@@ -1,0 +1,53 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPResearchDirector
+  name: scp-job-name-research-director
+  description: scp-job-description-research-director
+  playTimeTracker: SCPJobResearchDirector
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearResearchDirector
+  icon: "SCPJobIconResearchDirector"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-sd
+  accessGroups:
+  - Research
+
+- type: startingGear
+  id: SCPGearResearchDirector
+  equipment:
+    jumpsuit: SCPClothingUniformResearchDirectorTurtleneck
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: SCPClothingOuterCoatLabRD
+    id: SCPIDCardAdminLvl4
+    ears: ClothingHeadsetScience
+    belt: BoxFolderClipboard
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointResearchDirector
+  name: ResearchDirector spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPResearchDirector
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: dor
+
+- type: playTimeTracker
+  id: SCPJobResearchDirector

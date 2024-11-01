@@ -1,0 +1,53 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPResearcher
+  name: scp-job-name-researcher
+  description: scp-job-description-researcher
+  playTimeTracker: SCPJobResearcher
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearResearcher
+  icon: "SCPJobIconResearcher"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-dor
+  accessGroups:
+  - Research
+
+- type: startingGear
+  id: SCPGearResearcher
+  equipment:
+    jumpsuit: SCPClothingUniformJunResearchSuit
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: SCPClothingOuterCoatLabSci
+    id: SCPIDCardSciLvl3
+    ears: ClothingHeadsetScience
+    belt: BoxFolderClipboard
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointResearcher
+  name: foundation researcher spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPResearcher
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: res
+
+- type: playTimeTracker
+  id: SCPJobResearcher

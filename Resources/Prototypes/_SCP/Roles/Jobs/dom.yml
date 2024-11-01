@@ -1,0 +1,53 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPMedicalDirector
+  name: scp-job-name-medical-director
+  description: scp-job-description-medical-director
+  playTimeTracker: SCPJobMedicalDirector
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearMedicalDirector
+  icon: "SCPJobIconMedicalDirector"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-sd
+  accessGroups:
+  - Research
+
+- type: startingGear
+  id: SCPGearMedicalDirector
+  equipment:
+    jumpsuit: SCPClothingUniformMedicalDirectorTurtleneck
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: SCPClothingOuterCoatLabMD
+    id: SCPIDCardAdminLvl4
+    ears: ClothingHeadsetMedical
+    belt: BoxFolderClipboard
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointMedicalDirector
+  name: medical director spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPMedicalDirector
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: dor
+
+- type: playTimeTracker
+  id: SCPJobMedicalDirector
