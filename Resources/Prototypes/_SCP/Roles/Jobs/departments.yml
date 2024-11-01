@@ -71,5 +71,7 @@
   description: scp-department-admin-description
   color: "#f39f27"
   roles:
-  - SCPClassD
+  - SCPContainmentEngineer
+  - SCPChiefContainmentEngineer
+  - SCPCustodian
   primary: false

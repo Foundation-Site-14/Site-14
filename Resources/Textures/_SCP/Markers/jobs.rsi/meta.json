@@ -39,6 +39,12 @@
     },
     {
       "name": "logistics"
+    },
+    {
+      "name": "cce"
+    },
+    {
+      "name": "ce"
     }
   ]
 }

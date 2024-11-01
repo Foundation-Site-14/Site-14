@@ -38,3 +38,13 @@ scp-job-description-logistics-director = = A logistician's boss.
 
 scp-job-name-logistician = Logistician
 scp-job-description-logistician = = A logistician.
+
+scp-job-name-containment-engineer = Containment Engineer
+scp-job-description-containment-engineer = = A Containment Engineer.
+scp-job-supervisors-cce = The Chief Containment Engineer
+
+scp-job-name-chief-containment-engineer = Chief Containment Engineer
+scp-job-description-chief-containment-engineer = The Chief Containment Engineer.
+
+scp-job-name-custodian = Custodian
+scp-job-description-custodian = A custodian.
