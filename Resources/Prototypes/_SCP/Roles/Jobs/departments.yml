@@ -76,5 +76,6 @@
   description: scp-department-mtf-description
   color: "#1761EB"
   roles:
-  - SCPMobileTaskForceDelta4Operator
+  - SCPMobileTaskForceDelta4Agent
+  - SCPMobileTaskForceDelta4CO
   primary: false

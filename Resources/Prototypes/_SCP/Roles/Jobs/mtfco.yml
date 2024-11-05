@@ -1,9 +1,9 @@
 ﻿- type: job
   parent: SCPJobBase
-  id: SCPMobileTaskForceDelta4Agent
-  name: scp-job-name-mtf-agent
-  description: scp-job-description-mtf
-  playTimeTracker: SCPJobMobileTaskForceDelta4Agent
+  id: SCPMobileTaskForceDelta4CO
+  name: scp-job-name-mtf-co
+  description: scp-job-description-mtf-co
+  playTimeTracker: SCPJobMobileTaskForceDelta4CO
 #  requirements:
 #  - !type:TotalJobsTimeRequirement
 #    group: SCPMaintenance
@@ -18,7 +18,7 @@
 #    department: SCPCommand
 #    time: 36000 # 10 hours
   weight: 10
-  startingGear: SCPGearMobileTaskForceDelta4Agent
+  startingGear: SCPGearMobileTaskForceDelta4CO
   icon: "SCPJobIconMobileTaskForce"
   joinNotifyCrew: true
   supervisors: scp-job-supervisors-mtf-co
@@ -26,23 +26,24 @@
   - Security
 
 - type: startingGear
-  id: SCPGearMobileTaskForceDelta4Agent
+  id: SCPGearMobileTaskForceDelta4CO
   equipment:
     jumpsuit: SCPClothingUniformMTFDelta4
     back: ClothingBackpackFilled
+    head: SCPClothingHeadDelta4Beret
     shoes: SCPClothingShoesBootsDutySec
-    id: SCPIDCardSecLvl4
+    id: SCPIDCardAdminLvl4
     ears: ClothingHeadsetSecurity
-    pocket1: SCPWeaponPistolM1911
+    pocket1: SCPWeaponRevolverMateba
     belt: SCPClothingBeltSecurity
 
 - type: entity
   parent: SCPSpawnPointJobBase
-  id: SCPSpawnPointMobileTaskForceDelta4Agent
+  id: SCPSpawnPointMobileTaskForceDelta4CO
   name: delta-4 spawn point
   components:
   - type: SpawnPoint
-    job_id: SCPMobileTaskForceDelta4Agent
+    job_id: SCPMobileTaskForceDelta4CO
   - type: Sprite
     layers:
     - sprite: Markers/jobs.rsi
@@ -50,4 +51,4 @@
     - state: sec
 
 - type: playTimeTracker
-  id: SCPJobMobileTaskForceDelta4Agent
+  id: SCPJobMobileTaskForceDelta4CO
