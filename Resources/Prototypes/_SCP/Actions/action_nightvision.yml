@@ -6,10 +6,10 @@
   components:
   - type: InstantAction
     icon:
-      sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
-      state: icon-nvg-up
+      sprite: _SCP/Clothing/Head/Helmets/mtfnvg.rsi
+      state: icon-up
     iconOn:
       sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
-      state: icon-nvg
+      state: icon
     event: !type:ToggleActionEvent
     useDelay: 0.25
