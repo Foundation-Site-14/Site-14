@@ -48,3 +48,7 @@ scp-job-description-chief-containment-engineer = The Chief Containment Engineer.
 
 scp-job-name-custodian = Custodian
 scp-job-description-custodian = A custodian.
+
+scp-job-name-mtf-operator = Delta-4 Operator
+scp-job-description-mtf = ███████████████
+scp-job-supervisors-mtf-co = Delta-4 Commanding Officer

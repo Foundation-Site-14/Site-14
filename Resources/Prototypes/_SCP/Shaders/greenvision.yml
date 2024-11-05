@@ -1,4 +1,0 @@
-﻿- type: shader
-  id: GreenVision
-  kind: source
-  path: "/Textures/_SCP/Shaders/greenvision.swsl"
