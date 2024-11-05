@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Foundation-19 at https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/onmob_head.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_head.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/mob/onmob/onmob_head.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_head.dmi, https://github.com/Foundation-19/Foundation-19/blob/cd5ecd2a0d5312c0089663bce4086de9be87a35f/icons/obj/clothing/obj_head.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mtf-nvg-up",
+      "directions": 4
+    },
+    {
+      "name": "mtf-nvg",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-nvg-up"
+    },
+    {
+      "name": "icon-nvg",
+      "directions": 4
+    }
+  ]
+}

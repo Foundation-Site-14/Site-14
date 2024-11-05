@@ -15,3 +15,43 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadBase
+  id: SCPClothingHeadHelmetMTF
+  name: mtf tactical helmet
+  description: An armored helmet usually worn by Mobile Task Forces, dawned with SCP logos, and insignia.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+    tags:
+    - HidesHair
+
+
+- type: entity
+  parent: SCPClothingHeadHelmetMTF
+  id: SCPClothingHeadHelmetMTFNVG
+  name: mtf tactical helmet w/ nvg
+  components:
+  - type: Clothing
+    sprite: _SCP/Clothing/Head/Helmets/mtfnvg.rsi
+  - type: Sprite
+    sprite: _SCP/Clothing/Head/Helmets/mtfnvg.rsi
+  - type: NightVisionItem
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NightVisionItemVisuals.Active:
+        nightVisionItemLayer:
+          True: { state: icon }
+          False: { state: icon-up }
+
