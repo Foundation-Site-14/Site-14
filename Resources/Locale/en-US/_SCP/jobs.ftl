@@ -55,5 +55,5 @@ scp-job-supervisors-mtf-co = Delta-4 Commanding Officer
 
 
 
-scp-job-name-mtf-co = Delta-4 Commanding Officer
+scp-job-name-mtf-co = Delta-4 Team Leader
 scp-job-description-mtf = ███████████████
