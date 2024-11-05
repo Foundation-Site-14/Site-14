@@ -5,6 +5,12 @@
   components:
   - type: Wieldable
   - type: GunRequiresWield
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  
 
 - type: entity
   parent: BaseCartridgeCaselessRifle
