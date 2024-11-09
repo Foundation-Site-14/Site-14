@@ -1,0 +1,11 @@
+- type: entity
+  id: SpawnPointPocketDimensionExit
+  parent: MarkerBase
+  name: pocket dimension exit spawn
+  components:
+  - type: CorrosivePuddleSpawn
+  - type: Sprite
+    sprite: _SCP/Effects/oldmanpuddle.rsi
+    layers:
+    - state: green
+    - state: puddle
