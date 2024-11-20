@@ -1,0 +1,9 @@
+﻿- type: shader
+  id: GreenVision
+  kind: source
+  path: "/Textures/_SCP/Shaders/greenvision.swsl"
+
+- type: shader
+  id: WhiteVision
+  kind: source
+  path: "/Textures/_SCP/Shaders/whitevision.swsl"

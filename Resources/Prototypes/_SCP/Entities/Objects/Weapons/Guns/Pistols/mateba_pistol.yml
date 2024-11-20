@@ -1,0 +1,6 @@
+﻿- type: entity
+  id: SCPWeaponRevolverMateba
+  parent: WeaponRevolverMateba
+  components:
+  - type: Sprite
+    scale: 0.5,0.5

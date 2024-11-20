@@ -18,3 +18,6 @@ scp-department-civilian-description = Does this need a description?
 
 department-SCPMaintenanceDept = Maintenance Department
 scp-department-civilian-description = Does this need a description?
+
+department-SCPMobileTaskForceDelta4 = Mobile Task Force "Delta-4"
+scp-department-mtf-description = ███████████████

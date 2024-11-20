@@ -68,3 +68,14 @@
   - SCPChiefContainmentEngineer
   - SCPCustodian
   primary: false
+
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPMobileTaskForceDelta4
+  description: scp-department-mtf-description
+  color: "#1761EB"
+  roles:
+  - SCPMobileTaskForceDelta4Agent
+  - SCPMobileTaskForceDelta4CO
+  primary: false

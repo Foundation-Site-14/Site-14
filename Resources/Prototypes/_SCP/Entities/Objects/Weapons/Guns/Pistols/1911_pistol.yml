@@ -1,0 +1,79 @@
+﻿- type: entity
+  parent: WeaponPistolN1984
+  name: M1911
+  id: SCPWeaponPistolM1911
+  description: Muh two world wars.
+  components:
+  - type: Sprite
+    scale: 0.5,0.5
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SCPMagazinePistolM1911
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - SCPMagazineM1911
+      gun_chamber:
+        name: Chamber
+        startingItem: SCPCartridgePistol45acp
+        priority: 1
+        whitelist:
+          tags:
+            - SCPCartridge45acp
+
+- type: entity
+  parent: BaseMagazinePistol
+  id: SCPMagazinePistolM1911
+  name: M1911 magazine (.45 acp)
+  components:
+  - type: Sprite
+    scale: 0.6,0.6
+  - type: Tag
+    tags:
+    - SCPMagazineM1911
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - SCPCartridge45acp
+    proto: SCPCartridgePistol45acp
+    capacity: 12
+ 
+
+- type: entity
+  parent: BaseCartridgePistol
+  id: SCPCartridgePistol45acp
+  name: cartridge (45 acp)
+  components:
+  - type: Sprite
+    scale: 0.7,0.7
+  - type: Tag
+    tags:
+    - Cartridge
+    - SCP45Bullet45acp
+  - type: CartridgeAmmo
+    proto: SCPBulletPistol45acp
+
+- type: Tag
+  id: SCPMagazineM1911
+
+- type: Tag
+  id: SCPCartridge45acp
+
+- type: Tag
+  id: SCP45Bullet45acp
+
+- type: entity
+  parent: BulletPistol
+  id: SCPBulletPistol45acp 
+  name: bullet (45acp)
+  components:
+  - type: Sprite
+    scale: 0.6, 0.6
+  - type: Tag
+    tags:
+    - SCP45Bullet45acp

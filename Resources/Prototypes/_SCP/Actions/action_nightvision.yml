@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: SCPActionBase
+  id: ActionToggleNightVision
+  name: Toggle the nightvision
+  description: Allows you to see even in complete darkness.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _SCP/Clothing/Head/Helmets/mtfnvg.rsi
+      state: icon-up
+    iconOn:
+      sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
+      state: icon
+    event: !type:ToggleActionEvent
+    useDelay: 0.25

@@ -139,3 +139,38 @@
       - state: dept
         color: "#bb9042"
 
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformMTF
+  name: mtf jumpsuit
+  description: The mtf jumpsuit of the SCP Foundation, made from an insulated material.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/mtf.rsi
+    layers:
+    - state: icon
+    - state: icon_s
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/mtf.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: shirt
+      
+- type: entity
+  parent: SCPClothingUniformMTF
+  id: SCPClothingUniformMTFDelta4
+  name: delta-4 jumpsuit
+  description: The delta-4 jumpsuit of the SCP Foundation, made from an insulated material.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon_s
+      color: "#1761EB"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: shirt
+        color: "#1761EB"
