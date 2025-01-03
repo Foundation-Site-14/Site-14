@@ -5,9 +5,8 @@
   components:
   - type: Sprite
     sprite: _SCP/Effects/oldmanpuddle.rsi
-    drawdepth: FloorTiles
     layers:
     - state: puddle
   - type: CorrosivePuddle
-  - type: Clickable
   - type: InteractionOutline
+  - type: Clickable

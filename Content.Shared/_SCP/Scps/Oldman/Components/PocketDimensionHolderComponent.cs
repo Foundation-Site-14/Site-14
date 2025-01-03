@@ -12,28 +12,13 @@ using System.Threading.Tasks;
 namespace Content.Shared._SCP.Scps.Oldman.Components;
 
 [RegisterComponent,NetworkedComponent]
-[AutoGenerateComponentState]
 public sealed partial class PocketDimensionHolderComponent : Component
 {
     public EntityUid? pocketDimensionGrid;
     public EntityUid? pocketDimensionMap;
-    public EntityUid movePuddleEntity;
-    public EntityCoordinates lastLocation;
-    public EntityCoordinates nodeLocation;
-
-    [AutoNetworkedField]
-    public EntityUid? teleportNode = null;
-    [AutoNetworkedField]
-    public bool inPocketDimension = false;
 
     [DataField]
-    public EntProtoId traversePocketAction = "ActionTraversePocketDimension";
-    [DataField]
-    public EntProtoId createNodeAction = "ActionCreateTeleportNode";
-    [DataField]
-    public EntProtoId destroyNodeAction = "ActionDestroyTeleportNode";
-    [DataField]
-    public EntProtoId traverseNodeAction = "ActionTraverseTeleportNode";
+    public EntProtoId enterPocketAction = "ActionEnterPocketDimension";
 
     [DataField]
     public EntProtoId PocketPuddle = "OldManPuddle";

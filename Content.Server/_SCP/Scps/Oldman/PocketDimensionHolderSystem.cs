@@ -25,9 +25,10 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
     {
         SubscribeLocalEvent<PocketDimensionHolderComponent,ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PocketDimensionHolderComponent,MeleeHitEvent>(OnSend);
+        SubscribeLocalEvent<PocketDimensionHolderComponent,PocketDimensionEnterDoAfterEvent>(OnEnter);
 
         SubscribeLocalEvent<PocketDimensionInhabitantComponent,MobStateChangedEvent>(OnDie);
-        SubscribeLocalEvent<CorrosivePuddleHolderComponent,EscapePocketDimensionDoAfterEvent>(OnExit);
+        SubscribeLocalEvent<CorrosivePuddleHolderComponent,PocketDimensionEscapeDoAfterEvent>(OnExit);
     }
 
     //Dimension Setup
@@ -46,9 +47,24 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
             }
             comp.pocketDimensionMap = map;
         }
+
+        EntityManager.EventBus.RaiseComponentEvent(comp, new OldManSpawnEvent());
     }
 
     //Enter Dimension
+    private void OnEnter(EntityUid holder, PocketDimensionHolderComponent comp, PocketDimensionEnterDoAfterEvent args)
+    {
+        if (comp.pocketDimensionGrid == null)
+            return;
+
+        if (!_spawn.TryGetRandomPair(comp, out var puddleSpawn, out var playerSpawn))
+            return;
+
+        _puddle.CreatePuddle(holder, comp, puddleSpawn);
+        _transform.SetCoordinates(holder, new EntityCoordinates(comp.pocketDimensionGrid.Value, playerSpawn));
+    }
+
+    //Capture to Dimension
     private void OnSend(EntityUid owner, PocketDimensionHolderComponent comp, MeleeHitEvent args)
     {
         if (comp.pocketDimensionGrid == null)
@@ -77,7 +93,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
             _puddle.CreatePuddle(entity, comp, puddleSpawn);
             _transform.SetCoordinates(entity, new EntityCoordinates(comp.pocketDimensionGrid.Value, playerSpawn));
 
-            EntityManager.EventBus.RaiseComponentEvent(dweller,new EnterPocketDimensionEvent());
+            EntityManager.EventBus.RaiseComponentEvent(dweller,new PocketDimensionCaptureEvent());
         }
     }
 
@@ -86,11 +102,11 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
         if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical)
         {
             _puddle.DeletePuddle(inhabitant);
-            EntityManager.EventBus.RaiseComponentEvent(comp,new DieInPocketDimensionEvent());
+            EntityManager.EventBus.RaiseComponentEvent(comp,new PocketDimensionPerishEvent());
         }
     }
 
-    private void OnExit(EntityUid uid, CorrosivePuddleHolderComponent comp, EscapePocketDimensionDoAfterEvent args)
+    private void OnExit(EntityUid uid, CorrosivePuddleHolderComponent comp, PocketDimensionEscapeDoAfterEvent args)
     {
         var puddle = Comp<TransformComponent>(_puddle.GetLinkedPuddle(args.Target.GetValueOrDefault()));
 

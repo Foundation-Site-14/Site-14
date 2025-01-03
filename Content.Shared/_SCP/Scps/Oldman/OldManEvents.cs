@@ -9,18 +9,13 @@ using System.Threading.Tasks;
 using Content.Shared._SCP.Scps.Oldman.Components;
 using Content.Shared.Weapons.Melee;
 
-public sealed partial class TogglePocketDimension : InstantActionEvent { }
+[NetSerializable,Serializable] public sealed class OldManSpawnEvent : EventArgs {}
 
+public sealed partial class PocketDimensionEnterEvent : InstantActionEvent { }
+[NetSerializable,Serializable] public sealed partial class PocketDimensionEnterDoAfterEvent : SimpleDoAfterEvent { }
 
-[NetSerializable,Serializable]
-public sealed partial class TogglePocketDimensionDoAfter : SimpleDoAfterEvent { }
+[NetSerializable, Serializable] public sealed class PocketDimensionCaptureEvent : EventArgs  {}
 
-public sealed partial class OldManSpawn : EventArgs { }
+[NetSerializable, Serializable] public sealed class PocketDimensionPerishEvent : EventArgs  {}
 
-[NetSerializable, Serializable]
-public sealed class EnterPocketDimensionEvent : EventArgs  {}
-[NetSerializable, Serializable]
-public sealed class DieInPocketDimensionEvent : EventArgs  {}
-[NetSerializable, Serializable]
-public sealed partial class EscapePocketDimensionDoAfterEvent : SimpleDoAfterEvent
-{}
+[NetSerializable, Serializable] public sealed partial class PocketDimensionEscapeDoAfterEvent : SimpleDoAfterEvent {}

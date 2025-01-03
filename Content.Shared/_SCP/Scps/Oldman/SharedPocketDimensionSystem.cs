@@ -6,6 +6,7 @@ using Content.Shared.Mind;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
@@ -30,14 +31,18 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<CorrosivePuddleComponent,InteractHandEvent>(OnTryExit);
-        SubscribeLocalEvent<PocketDimensionInhabitantComponent, EnterPocketDimensionEvent>(OnSend);
-        SubscribeLocalEvent<PocketDimensionInhabitantComponent, DieInPocketDimensionEvent>(OnStateChange);
-    }
+        SubscribeLocalEvent<PocketDimensionHolderComponent,OldManSpawnEvent>(OnSpawn);
+        SubscribeLocalEvent<PocketDimensionHolderComponent, PocketDimensionEnterEvent>(OnTryEnter);
 
+        SubscribeLocalEvent<CorrosivePuddleComponent,ActivateInWorldEvent>(OnTryExit);
+
+        SubscribeLocalEvent<PocketDimensionInhabitantComponent, PocketDimensionCaptureEvent>(OnSend);
+        SubscribeLocalEvent<PocketDimensionInhabitantComponent, PocketDimensionPerishEvent>(OnStateChange);
+    }
     public override void Update(float frameTime)
     {
         var people = EntityQueryEnumerator<PocketDimensionInhabitantComponent>();
@@ -51,10 +56,27 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
             }
         }
     }
+    //Spawn
+    private void OnSpawn(EntityUid holder, PocketDimensionHolderComponent comp, OldManSpawnEvent e)
+    {
+        _actions.AddAction(holder, comp.enterPocketAction);
+    }
+
     //Enter Pocket Dimension TODO
+    private void OnTryEnter(EntityUid uid, PocketDimensionHolderComponent comp, PocketDimensionEnterEvent args)
+    {
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, TimeSpan.FromSeconds(3f), new PocketDimensionEnterDoAfterEvent(),args.Performer)
+        {
+            BreakOnUserMove = true,
+            BreakOnDamage = false
+        };
+
+        if(_doAfter.TryStartDoAfter(doAfterArgs))
+            _popup.PopupPredicted(Loc.GetString("scp-oldman-enterpocket"),uid,uid);
+    }
 
     //Get Taken to Pocket Dimension
-    private void OnSend(EntityUid inhabitant, PocketDimensionInhabitantComponent component, EnterPocketDimensionEvent e)
+    private void OnSend(EntityUid inhabitant, PocketDimensionInhabitantComponent component, PocketDimensionCaptureEvent e)
     {
 
         if (!_mind.TryGetMind(inhabitant, out var _, out var mind))
@@ -83,7 +105,7 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
     }
 
     //Die in pocket dimension
-    private void OnStateChange(EntityUid uid, PocketDimensionInhabitantComponent comp, DieInPocketDimensionEvent args)
+    private void OnStateChange(EntityUid uid, PocketDimensionInhabitantComponent comp, PocketDimensionPerishEvent args)
     {
         if (!TryComp<PocketDimensionHolderComponent>(comp.dimensionOwner, out var dimensionOwner))
             return;
@@ -91,12 +113,12 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
         QueueDel(uid);
     }
 
-    private void OnTryExit(EntityUid uid, CorrosivePuddleComponent comp, InteractHandEvent args)
+    private void OnTryExit(EntityUid uid, CorrosivePuddleComponent comp, ActivateInWorldEvent args)
     {
         if(!HasComp<CorrosivePuddleComponent>(uid))
             return;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(3f), new EscapePocketDimensionDoAfterEvent(),args.User,args.Target)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(3f), new PocketDimensionEscapeDoAfterEvent(),args.User,args.Target)
         {
             BreakOnUserMove = true,
             BreakOnDamage = false

@@ -1,13 +1,13 @@
-# - type: entity
-#   id: ActionTraversePocketDimension
-#   name: Traverse Pocket Dimension
-#   description: Traverse your pocket dimension
-#   components:
-#   - type: InstantAction
-#     itemIconStyle: NoItem
-#     icon:
-#       sprite: _SCP/Interface/Actions/oldman.rsi
-#       state: traversepocket
-#     event: !type:TogglePocketDimension
-#     useDelay: 3
-#   - type: TraversePocketDimensionAction
+- type: entity
+  id: ActionEnterPocketDimension
+  name: Enter Pocket Dimension
+  description: Enter your pocket dimension
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _SCP/Interface/Actions/oldman.rsi
+      state: traversepocket
+    event: !type:PocketDimensionEnterEvent
+    useDelay: 3
+  - type: EnterPocketDimensionAction

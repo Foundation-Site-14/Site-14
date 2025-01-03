@@ -12,7 +12,7 @@
       collection: OldmanHit
     damage:
       groups:
-        Burn: 20 
+        Burn: 20
   - type: Fixtures
     fixtures:
       fix1:
@@ -36,6 +36,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
 
 - type: entity
   parent: [ SCPOldman ]
