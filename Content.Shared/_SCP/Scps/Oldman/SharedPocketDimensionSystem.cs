@@ -115,7 +115,10 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
 
     private void OnTryExit(EntityUid uid, CorrosivePuddleComponent comp, ActivateInWorldEvent args)
     {
-        if(!HasComp<CorrosivePuddleComponent>(uid))
+        if(!TryComp<CorrosivePuddleComponent>(uid, out var puddle))
+            return;
+
+        if(!puddle.isParent)
             return;
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(3f), new PocketDimensionEscapeDoAfterEvent(),args.User,args.Target)

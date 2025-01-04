@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Numerics;
 using Content.Shared._SCP.Scps.Oldman.Components;
+using Content.Shared.Alert;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;
@@ -18,6 +19,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly CorrosivePuddleSystem _puddle = default!;
     [Dependency] private readonly PocketDimensionSpawnSystem _spawn = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
 
     public const string pocketDimensionMapPath = "/Maps/_SCP/testpocket.yml";
 
@@ -113,6 +115,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
         _transform.SetCoordinates(uid,puddle.Coordinates);
 
         _puddle.DeletePuddle(uid);
+        _alerts.ClearAlert(uid, AlertType.PocketDimension);
 
         RemComp<CorrosivePuddleHolderComponent>(uid);
         RemComp<PocketDimensionInhabitantComponent>(uid);
