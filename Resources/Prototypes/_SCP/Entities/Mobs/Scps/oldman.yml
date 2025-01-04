@@ -1,0 +1,65 @@
+- type: entity
+  parent: SCPPlayableBase
+  id: SCPOldman
+  name: SCP-106
+  description: scp 106
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 3.5
+  - type: MeleeWeapon
+    soundHit:
+      collection: OldmanHit
+    damage:
+      groups:
+        Burn: 20
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 230
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Tag
+    tags:
+      - FootstepSound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: OldmanHit
+  - type: PocketDimensionHolder
+  - type: Sprite
+    sprite: _SCP/Mobs/Scps/oldman.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+
+- type: entity
+  parent: [ SCPOldman ]
+  id: SCPOldmanAI
+  name: SCP-106 (AI)
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: MovementAlwaysTouching
+  - type: ReplacementAccent
+    accent: genericAggressive
