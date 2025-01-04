@@ -1,0 +1,101 @@
+﻿- type: entity
+  parent: SCPBaseWeaponSMG
+  name: MP5 submachine gun
+  id: SCPWeaponSMGMP5 # ported from RMC
+  description: A German design, this was one of the most widely used submachine guns in the world. It's still possible to find this firearm in the hands of collectors or gun fanatics.
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: _SCP/Objects/Weapons/Guns/SMGs/mp5.rsi
+    scale: 0.6, 0.6
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Gun
+    shotsPerBurst: 3
+    soundGunshot:
+      path: /Audio/_SCP/Weapons/Guns/Gunshots/smg_light.ogg
+  - type: MagazineAmmoProvider
+    autoEject: false
+    soundAutoEject: null
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SCPMagazineSMGMP5
+        insertSound: /Audio/_SCP/Weapons/Guns/Reload/smg_reload.ogg
+        ejectSound: /Audio/_SCP/Weapons/Guns/Reload/smg_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SCPMagazineSMGMP5
+      gun_chamber:
+        name: Chamber
+        startingItem: SCPCartridge9mm
+        priority: 1
+        whitelist:
+          tags:
+            - SCPCartridge9mm
+
+- type: entity
+  parent: BaseMagazineRifle
+  id: SCPMagazineSMGMP5
+  name: "MP5 magazine (9mm)"
+  description: "A 9mm magazine for the MP5."
+  components:
+  - type: Tag
+    tags:
+    - SCPMagazineSMG
+    - SCPMagazineSMGMP5
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - SCPCartridge9mm
+    proto: SCPCartridge9mm
+    capacity: 30
+  - type: Sprite
+    sprite: _SCP/Objects/Weapons/Guns/Ammunition/Magazines/mp5.rsi
+    scale: 0.6, 0.6
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+    zeroOnlyOnEmpty: true
+  - type: Appearance
+
+- type: entity
+  parent: BaseCartridgePistol
+  id: SCPCartridge9mm
+  name: cartridge (9×19mm Parabellum)
+  description: A 9mm cartridge for 9mm pistols and submachine guns.
+  components:
+  - type: Sprite
+    scale: 0.6, 0.6
+  - type: Tag
+    tags:
+    - Cartridge
+    - SCPCartridge9mm
+  - type: CartridgeAmmo
+    proto: SCPBullet9mm
+
+- type: entity
+  parent: BulletPistol
+  id: SCPBullet9mm #Yes it does use a seperate type of 9mm thats mechanically identical to 10x20mm for some reason
+  name: bullet (9×19mm Parabellum)
+  components:
+  - type: Sprite
+    scale: 0.6, 0.6
+
+- type: Tag
+  id: SCPMagazineSMGMP5
+
+- type: Tag
+  id: SCPCartridge9mm

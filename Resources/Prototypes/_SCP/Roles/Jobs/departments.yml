@@ -1,0 +1,81 @@
+﻿- type: department
+  parent: SCPDepartmentBase
+  id: SCPSecurityDept
+  description: scp-department-Security-description
+  color: "#efefef"
+  roles:
+  - SCPDirectorOfSecurity
+  - SCPSecurityGuard
+  primary: false
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPAdminDept
+  description: scp-department-admin-description
+  color: "#334E6D"
+  roles:
+  - SCPDirectorOfSecurity
+  - SCPSiteDirector
+  - SCPResearchDirector
+  primary: false
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPResearchDept
+  description: scp-department-admin-description
+  color: "#c96dbf"
+  roles:
+  - SCPResearcher
+  - SCPResearchDirector
+  primary: false
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPCivilian
+  description: scp-department-admin-description
+  color: "#9fed58"
+  roles:
+  - SCPClassD
+  primary: false
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPMedicalDept
+  description: scp-department-admin-description
+  color: "#5b97bc"
+  roles:
+  - SCPDoctor
+  - SCPMedicalDirector
+  primary: false
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPLogisticsDept
+  description: scp-department-admin-description
+  color: "#b18644"
+  roles:
+  - SCPLogisticsDirector
+  - SCPLogistician
+  primary: false
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPMaintenanceDept
+  description: scp-department-admin-description
+  color: "#f39f27"
+  roles:
+  - SCPContainmentEngineer
+  - SCPChiefContainmentEngineer
+  - SCPCustodian
+  primary: false
+
+
+- type: department
+  parent: SCPDepartmentBase
+  id: SCPMobileTaskForceDelta4
+  description: scp-department-mtf-description
+  color: "#1761EB"
+  roles:
+  - SCPMobileTaskForceDelta4Agent
+  - SCPMobileTaskForceDelta4CO
+  primary: false

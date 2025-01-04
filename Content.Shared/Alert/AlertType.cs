@@ -71,9 +71,10 @@ namespace Content.Shared.Alert
         BorgCrit,
         BorgDead,
         Offer,
-
+        
         //SCP
         PocketDimension
+        NightVision,
     }
 
 }

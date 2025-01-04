@@ -1,0 +1,186 @@
+﻿- type: entity
+  parent: Clothing
+  id: SCPIDCardStandard
+  name: identification card
+  description: A card used to provide identification and provide access to areas across the site.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _SCP/Objects/Misc/id_cards.rsi
+    scale: 0.6, 0.6
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _SCP/Objects/Misc/id_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: Access
+  - type: IdCard
+  - type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+
+- type: entity
+  parent: SCPIDCardStandard
+  id: SCPIDCard
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardStandard
+  id: SCPIDCardSciBase
+  name: science identification card
+  components:
+  - type: Sprite
+    layers:
+    - state: sciencelvl1
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardStandard
+  id: SCPIDCardSecBase
+  name: security identification card
+  components:
+  - type: Sprite
+    layers:
+    - state: securitylvl1
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardStandard
+  id: SCPIDCardAdminBase
+  name: site administration identification card
+  components:
+  - type: Sprite
+    layers:
+    - state: adminlvl1
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardSciBase
+  id: SCPIDCardSciLvl2
+  components:
+  - type: Sprite
+    layers:
+    - state: sciencelvl2
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardSecBase
+  id: SCPIDCardSecLvl2
+  components:
+  - type: Sprite
+    layers:
+    - state: securitylvl2
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardAdminBase
+  id: SCPIDCardAdminLvl2
+  components:
+  - type: Sprite
+    layers:
+    - state: adminlvl2
+  - type: PresetIdCard
+    job: Passenger
+- type: entity
+  parent: SCPIDCardSciBase
+  id: SCPIDCardSciLvl3
+  components:
+  - type: Sprite
+    layers:
+    - state: sciencelvl3
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardSecBase
+  id: SCPIDCardSecLvl3
+  components:
+  - type: Sprite
+    layers:
+    - state: securitylvl3
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardAdminBase
+  id: SCPIDCardAdminLvl3
+  components:
+  - type: Sprite
+    layers:
+    - state: adminlvl3
+  - type: PresetIdCard
+    job: Passenger
+- type: entity
+  parent: SCPIDCardSciBase
+  id: SCPIDCardSciLvl4
+  components:
+  - type: Sprite
+    layers:
+    - state: sciencelvl4
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardSecBase
+  id: SCPIDCardSecLvl4
+  components:
+  - type: Sprite
+    layers:
+    - state: securitylvl4
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardAdminBase
+  id: SCPIDCardAdminLvl4
+  components:
+  - type: Sprite
+    layers:
+    - state: adminlvl4
+  - type: PresetIdCard
+    job: Passenger
+- type: entity
+  parent: SCPIDCardSciBase
+  id: SCPIDCardSciLvl5
+  components:
+  - type: Sprite
+    layers:
+    - state: sciencelvl5
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardSecBase
+  id: SCPIDCardSecLvl5
+  components:
+  - type: Sprite
+    layers:
+    - state: securitylvl5
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: SCPIDCardAdminBase
+  id: SCPIDCardAdminLvl5
+  components:
+  - type: Sprite
+    layers:
+    - state: adminlvl5
+  - type: PresetIdCard
+    job: Passenger
+

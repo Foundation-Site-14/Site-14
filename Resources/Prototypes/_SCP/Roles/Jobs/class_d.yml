@@ -1,0 +1,46 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPClassD
+  name: scp-job-name-class-d
+  description: scp-job-description-class-d
+  playTimeTracker: SCPJobClassD
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearClassD
+  icon: "SCPJobIconClassD"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-dos
+
+- type: startingGear
+  id: SCPGearClassD
+  equipment:
+    jumpsuit: SCPClothingUniformClassD
+    shoes: ClothingShoesColorWhite
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointClassD
+  name: class d spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPClassD
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: classd
+
+- type: playTimeTracker
+  id: SCPJobClassD

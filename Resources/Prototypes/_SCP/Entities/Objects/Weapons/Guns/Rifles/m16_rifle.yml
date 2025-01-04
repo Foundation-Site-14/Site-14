@@ -1,0 +1,15 @@
+﻿- type: entity
+  id: SCPWEaponRifleM16
+  parent: BaseWeaponRifle
+  name: M16 rifle
+  components:
+  - type: Sprite
+    sprite: _SCP/Objects/Weapons/Guns/Rifles/m16.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: mag-0
+        map: [ "enum.GunVisualLayers.Mag" ]
+    scale: 0.75,0.75
+  - type: Clothing
+    sprite: _SCP/Objects/Weapons/Guns/Rifles/m16.rsi

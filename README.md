@@ -1,5 +1,9 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c528f24a-2566-41c6-bf59-1c977e598bf9" />
+</p>
+
 # Site-14 (SCP Fork)
-Site 14 is a fork based on the SCP universe set within the Robust/Space Station 14 game, using the Einstein Engines fork as an upstream (see below).  Visit the discord at discord.gg/4gGSWyNbQF for more information on how to contribute or play the game.
+Site 14 is a fork based on the SCP universe set within the Robust/Space Station 14 game, using the Einstein Engines fork as an upstream (see below).  Visit the discord [here](discord.gg/4gGSWyNbQF) for more information on how to contribute or play the game.
 
 
 # Einstein Engines

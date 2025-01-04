@@ -1,0 +1,54 @@
+﻿- type: job
+  parent: SCPJobBase
+  id: SCPContainmentEngineer
+  name: scp-job-name-containment-engineer
+  description: scp-job-description-containment-engineer
+  playTimeTracker: SCPJobContainmentEngineer
+#  requirements:
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPMaintenance
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPSecurity
+#    time: 36000 # 10 hours
+#  - !type:TotalJobsTimeRequirement
+#    group: SCPJobsMedical
+#    time: 36000 # 10 hours
+#  - !type:DepartmentTimeRequirement
+#    department: SCPCommand
+#    time: 36000 # 10 hours
+  weight: 10
+  startingGear: SCPGearContainmentEngineer
+  icon: "SCPJobIconContainmentEngineer"
+  joinNotifyCrew: true
+  supervisors: scp-job-supervisors-cce
+  accessGroups:
+  - Engineering
+
+- type: startingGear
+  id: SCPGearContainmentEngineer
+  equipment:
+    jumpsuit: SCPClothingUniformSCPMaintenance
+    back: ClothingBackpackFilled
+    shoes: SCPClothingShoesBootsDutySec
+    id: SCPIDCardAdminLvl2
+    belt: ClothingBeltUtilityEngineering
+    ears: ClothingHeadsetEngineering
+    eyes: ClothingEyesGlassesMeson
+    head: ClothingHeadHatHardhatOrange
+
+- type: entity
+  parent: SCPSpawnPointJobBase
+  id: SCPSpawnPointContainmentEngineer
+  name: containment engineer spawn point
+  components:
+  - type: SpawnPoint
+    job_id: SCPContainmentEngineer
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - state: ce
+
+- type: playTimeTracker
+  id: SCPJobContainmentEngineer

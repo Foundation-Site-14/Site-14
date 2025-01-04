@@ -1,0 +1,42 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: SCPClothingHeadBeret
+  name: foundation beret
+  description: A non-descript beret.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Head/Berets/beret.rsi
+    layers:
+    - state: icon
+    - state: icon-medallion
+  - type: Clothing
+    sprite: _SCP/Clothing/Head/Berets/beret.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: medallion
+
+- type: entity
+  parent: ClothingHeadBase
+  id: SCPClothingHeadDelta4Beret
+  name: delta-4 beret
+  description: A blue beret padded with kevlar.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Head/Berets/beret.rsi
+    layers:
+    - state: icon
+      color: "#1761EB"
+    - state: icon-medallion
+  - type: Clothing
+    sprite: _SCP/Clothing/Head/Berets/beret.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#1761EB"
+      - state: medallion
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Slash: 0.8
+        Piercing: 0.8

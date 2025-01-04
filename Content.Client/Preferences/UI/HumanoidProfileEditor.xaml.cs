@@ -700,6 +700,8 @@ namespace Content.Client.Preferences.UI
                             ("departmentName", departmentName))
                     };
 
+                    category.Visible = department.IsSCP && !department.Hidden;
+
                     if (firstCategory)
                     {
                         firstCategory = false;

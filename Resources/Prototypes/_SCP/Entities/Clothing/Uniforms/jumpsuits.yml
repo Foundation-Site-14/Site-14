@@ -1,0 +1,176 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformJumpsuit
+  name: standard issue jumpsuit
+  description: A dark black uniform. This one seems to be without department insignia. On the back, in silver lettering, are the words 'SCP FOUNDATION'.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/jumpsuit.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/jumpsuit.rsi
+
+- type: entity
+  parent: SCPClothingUniformJumpsuit
+  id: SCPClothingUniformMaintenanceJumpsuit
+  name: maintenace jumpsuit
+  description: A dark black uniform. This one seems to be of the Engineering department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#ff7f00"
+
+- type: entity
+  parent: SCPClothingUniformJumpsuit
+  id: SCPClothingUniformLogisticsJumpsuit
+  name: logistics jumpsuit
+  description: A dark black uniform. This one seems to be of the Logistics department.  This uniform is issued regardless of rank.  On the back, in silver lettering, are the words 'SCP FOUNDATION'.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#bb9042"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformClassD
+  name: class-d jumpsuit
+  description: A standard-issue orange jumpsuit, ideal for a class-d personnel working in a controlled environment.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/classd.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/classd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformSecurity
+  name: guard uniform
+  description: A sterile white uniform. Currently issued to guard personnel.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guard.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformSecuritySeargent
+  name: seargent uniform
+  description: A sterile white uniform. Currently issued to seargents.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/seargent.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/seargent.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformSecurityCommander
+  name: director of security's uniform
+  description: A white tactical shirt, with a pair of black trousers with golden striping on the side, the shirt is covered in gold insignia, with an additional black color over the wrists. There's a golden badge and belt buckle. This is definitely the definition of prospertiy.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guardcom.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/guardcom.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformSecurityAlt
+  name: guard uniform
+  description: A sterile black uniform. Currently issued to some guard personnel.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/hczguard.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/hczguard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformEngineeringDirectorJumpsuit
+  name: chief containment engineer's jumpsuit
+  description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of \"Director of Maintenance\". It has minor radiation shielding.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/engineeringdirector.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/engineeringdirector.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformUtility
+  name: utility coveralls
+  description: The utility uniform of the SCP Foundation, made from an insulated material.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/utilitysuit.rsi
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/utilitysuit.rsi
+
+- type: entity
+  parent: SCPClothingUniformUtility
+  id: SCPClothingUniformSCPMaintenance
+  name: maintenance coveralls
+  description: The utility uniform of the SCP Foundation, made from an insulated material, with orange markings denoting maintenance.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#ff7f00"
+
+- type: entity
+  parent: SCPClothingUniformUtility
+  id: SCPClothingUniformLogistics
+  name: logistics coveralls
+  description: The utility uniform of the SCP Foundation, made from an insulated material, with brown markings denoting logistics.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: dept
+        color: "#bb9042"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SCPClothingUniformMTF
+  name: mtf jumpsuit
+  description: The mtf jumpsuit of the SCP Foundation, made from an insulated material.
+  components:
+  - type: Sprite
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/mtf.rsi
+    layers:
+    - state: icon
+    - state: icon_s
+  - type: Clothing
+    sprite: _SCP/Clothing/Uniforms/Jumpsuit/mtf.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: shirt
+      
+- type: entity
+  parent: SCPClothingUniformMTF
+  id: SCPClothingUniformMTFDelta4
+  name: delta-4 jumpsuit
+  description: The delta-4 jumpsuit of the SCP Foundation, made from an insulated material.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon_s
+      color: "#1761EB"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+      - state: shirt
+        color: "#1761EB"

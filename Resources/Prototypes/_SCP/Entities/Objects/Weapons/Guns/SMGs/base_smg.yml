@@ -1,0 +1,27 @@
+﻿- type: entity
+  parent: BaseWeaponSubMachineGun
+  id: SCPBaseWeaponSMG
+  abstract: true
+  components:
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  
+
+- type: entity
+  parent: BaseCartridgeCaselessRifle
+  id: SCPCartridgeSMGBase
+  abstract: true
+  components:
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+
+- type: Tag
+  id: SCPWeaponSMG
+
+- type: Tag
+  id: SCPMagazineSMG
