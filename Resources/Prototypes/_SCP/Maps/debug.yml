@@ -16,3 +16,6 @@
             SCPSiteDirector: [ -1, -1 ]
             SCPSecurityGuard: [-1, -1]
             SCPClassD: [-1, -1]
+        - type: Agenda
+          availableObjectives:
+          - TestObjectiveA
