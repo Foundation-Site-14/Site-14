@@ -13,4 +13,5 @@ public sealed class AgendaObjectivePrototype : IPrototype
     public string ID { get; } = default!;
     public string Text => Loc.GetString($"agenda-objective-{ID.ToLower()}");
 
+    public bool Completed  = false;
 }
