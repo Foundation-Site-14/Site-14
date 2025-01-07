@@ -1,10 +1,8 @@
-using System.Diagnostics;
 using System.Linq;
 using Content.Server.Station.Systems;
 using Content.Server._SCP.Agenda.Components;
 using Content.Shared._SCP.Agenda;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server._SCP.Agenda;
 
@@ -35,7 +33,7 @@ public sealed class AgendaSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns all overflow jobs available on the station.
+    /// Returns all available objectives for the site.
     /// </summary>
     public IReadOnlySet<string> GetAvailableObjectives(EntityUid station, AgendaComponent? agenda = null)
     {
