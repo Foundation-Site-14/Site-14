@@ -1,2 +1,6 @@
 - type: agendaObjective
   id: TestObjectiveA
+
+- type: agendaObjective
+  id: TestObjectiveB
+

@@ -1,8 +1,5 @@
-using Content.Shared.Roles;
+using Content.Shared._SCP.Agenda;
 using JetBrains.Annotations;
-using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server._SCP.Agenda.Components;
@@ -26,10 +23,10 @@ public sealed partial class AgendaComponent : Component
     /// <summary>
     /// A list of all available objectives that can be randomly picked from.
     /// </summary>
-    [DataField("availableObjectives", required: true, customTypeSerializer: typeof(PrototypeIdDictionarySerializer<uint?, AgendaObjectivePrototype>))]
-    public Dictionary<string, uint?> AvailableObjectives = new();
+    [DataField("availableObjectives", required: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<AgendaObjectivePrototype>))]
+    public HashSet<string> AvailableObjectives = new();
 
-    [DataField("objectiveList", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<uint?, AgendaObjectivePrototype>))]
-    public Dictionary<string, uint?> ObjectiveList = new();
+    [DataField("objectiveList", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<AgendaObjectivePrototype>))]
+    public HashSet<string> ObjectiveList = new();
 
 }

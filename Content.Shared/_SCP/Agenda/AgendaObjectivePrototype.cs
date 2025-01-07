@@ -1,12 +1,12 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._SCP.Agenda;
+namespace Content.Shared._SCP.Agenda;
 
 /// <summary>
 /// This is a prototype for agenda objectives
 /// </summary>
 [Prototype("agendaObjective")]
-public sealed partial class AgendaObjectivePrototype : IPrototype
+public sealed class AgendaObjectivePrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
