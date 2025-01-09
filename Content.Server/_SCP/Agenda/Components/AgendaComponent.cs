@@ -1,8 +1,10 @@
 using Content.Shared._SCP.Agenda;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server._SCP.Agenda.Components;
+
 
 /// <summary>
 /// Stores information about a sites' current agenda .
@@ -23,10 +25,10 @@ public sealed partial class AgendaComponent : Component
     /// <summary>
     /// A list of all available objectives that can be randomly picked from.
     /// </summary>
-    [DataField("availableObjectives", required: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<AgendaObjectivePrototype>))]
-    public HashSet<string> AvailableObjectives = new();
+    [DataField("availableObjectives", required: true)]
+    public HashSet<EntProtoId> AvailableObjectives = new();
 
-    [DataField("objectiveList", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<AgendaObjectivePrototype>))]
-    public HashSet<string> ObjectiveList = new();
+    [DataField("objectiveList")]
+    public HashSet<EntProtoId> ObjectiveList = new();
 
 }

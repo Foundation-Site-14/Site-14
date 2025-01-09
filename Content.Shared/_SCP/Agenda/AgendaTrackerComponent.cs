@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._SCP.Agenda;
@@ -7,14 +8,17 @@ namespace Content.Shared._SCP.Agenda;
 /// Stores information about a sites' current agenda .
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[AutoGenerateComponentState(true)]
 public sealed partial class AgendaTrackerComponent : Component
 {
     /// <summary>
     /// Current total objectives.
     /// </summary>
-    [DataField("prototypeId", customTypeSerializer: typeof(PrototypeIdSerializer<AgendaObjectivePrototype>))]
+    [DataField("prototypeId")]
     [AutoNetworkedField]
-    public string? PrototypeId;
+    public ProtoId<AgendaObjectivePrototype> PrototypeId;
+
+    [DataField("terminated")]
+    public bool Terminated = false;
 
 }
