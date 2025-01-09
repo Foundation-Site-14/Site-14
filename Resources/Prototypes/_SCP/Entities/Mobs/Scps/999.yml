@@ -1,0 +1,56 @@
+﻿- type: entity
+  parent: MobAdultSlimes
+  id: SCP-999
+  name: SCP-999
+  description: Appears to be a large, amorphous, gelatinous mass of translucent orange slime.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Sprite
+    sprite: _SCP/Mobs/Scps/999.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: scp-999
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: scp-999
+      Critical:
+        Base: scp-999_dead
+      Dead:
+          Base: scp-999_dead
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: -6
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      999: Dead
+  - type: Damageable
+    damageModifierSet: SlimePet
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: MultiHandedItem
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - CannotSuicide
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-slimes
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.75
+    baseSprintSpeed: 1
