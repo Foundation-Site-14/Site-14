@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Station.Systems;
 using Content.Server._SCP.Agenda.Components;
 using Content.Shared._SCP.Agenda;
+using Content.Shared.Mobs;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._SCP.Agenda;
@@ -17,7 +18,7 @@ public sealed class AgendaSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialized);
-
+        SubscribeLocalEvent<AgendaTrackerComponent,MobStateChangedEvent>(OnDead);
     }
 
     private HashSet<T> ExtractPrototypes<T>(HashSet<string> prototypeIds) where T : class, IPrototype
@@ -31,6 +32,21 @@ public sealed class AgendaSystem : EntitySystem
         }
         return prototypes;
     }
+
+    private void OnDead(EntityUid inhabitant, AgendaTrackerComponent comp, MobStateChangedEvent args)
+    {
+        Logger.Debug("SCP State Changed");
+        if (comp.PrototypeId != null && !_prototypeManager.TryIndex(comp.PrototypeId, out var prototype))
+            return;
+
+        if (args.NewMobState is not (MobState.Dead or MobState.Critical))
+            return;
+
+        Logger.Debug("SCP terminated");
+
+    }
+
+
 
     /// <summary>
     /// Returns all available objectives for the site.

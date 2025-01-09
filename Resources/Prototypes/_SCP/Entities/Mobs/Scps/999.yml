@@ -54,3 +54,5 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.75
     baseSprintSpeed: 1
+  - type: AgendaTracker
+    prototypeId: TestObjectiveA
