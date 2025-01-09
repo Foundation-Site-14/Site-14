@@ -7,7 +7,8 @@ public enum ObjectiveType : byte
     Terminate = 0,
     Transport = 1,
     Tech = 2,
-    Tests = 3
+    Tests = 3,
+    None = 4
 }
 
 /// <summary>

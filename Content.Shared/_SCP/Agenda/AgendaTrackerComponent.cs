@@ -1,6 +1,5 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._SCP.Agenda;
 
@@ -17,8 +16,5 @@ public sealed partial class AgendaTrackerComponent : Component
     [DataField("prototypeId")]
     [AutoNetworkedField]
     public ProtoId<AgendaObjectivePrototype> PrototypeId;
-
-    [DataField("terminated")]
-    public bool Terminated = false;
 
 }

@@ -23,29 +23,30 @@ public sealed class AgendaSystem : EntitySystem
         SubscribeLocalEvent<AgendaTrackerComponent,MobStateChangedEvent>(OnDead);
     }
 
-    private AgendaObjectivePrototype? GetProto(ProtoId<AgendaObjectivePrototype> protoID)
+    private AgendaObjectivePrototype? GetProto(ProtoId<AgendaObjectivePrototype> protoId)
     {
-        _prototypeManager.TryIndex(protoID, out var prototype);
+        _prototypeManager.TryIndex(protoId, out var prototype);
         return prototype;
     }
 
-    private void CompleteObjective(ProtoId<AgendaObjectivePrototype> protoID)
+    private void CompleteObjective(ProtoId<AgendaObjectivePrototype> protoId)
     {
-        var prototype = GetProto(protoID);
+        var prototype = GetProto(protoId);
         if (prototype == null)
             return;
 
         prototype.Completed = true;
     }
 
-    private ObjectiveType GetGoal(ProtoId<AgendaObjectivePrototype> protoID)
+    private ObjectiveType GetGoal(ProtoId<AgendaObjectivePrototype> protoId)
     {
-        var prototype = GetProto(protoID);
+        var prototype = GetProto(protoId);
 
-        if (prototype != null)
-            return prototype.ObjectiveGoal;
+        if (prototype == null)
+            return ObjectiveType.None;
 
-        return ObjectiveType.Terminate;
+        return prototype.ObjectiveGoal;
+
     }
 
     private void OnDead(EntityUid inhabitant, AgendaTrackerComponent comp, MobStateChangedEvent args)
@@ -58,8 +59,9 @@ public sealed class AgendaSystem : EntitySystem
             return;
 
         Logger.Debug("SCP terminated");
-
+        CompleteObjective(comp.PrototypeId);
     }
+
     private void OnStationInitialized(StationInitializedEvent msg)
     {
         if (!TryComp<AgendaComponent>(msg.Station, out var agenda))
