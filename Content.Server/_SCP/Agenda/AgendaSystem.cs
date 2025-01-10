@@ -15,10 +15,11 @@ public sealed class AgendaSystem : EntitySystem
 
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
-        Logger.Debug("Agenda system initializing");
         SubscribeLocalEvent<StationInitializedEvent>(OnStationInitialized);
         SubscribeLocalEvent<AgendaTrackerComponent,MobStateChangedEvent>(OnDead);
     }
@@ -27,6 +28,11 @@ public sealed class AgendaSystem : EntitySystem
     {
         _prototypeManager.TryIndex(protoId, out var prototype);
         return prototype;
+    }
+
+    private void IsTransported(AgendaTrackerComponent comp)
+    {
+
     }
 
     private void CompleteObjective(ProtoId<AgendaObjectivePrototype> protoId)
@@ -51,14 +57,12 @@ public sealed class AgendaSystem : EntitySystem
 
     private void OnDead(EntityUid inhabitant, AgendaTrackerComponent comp, MobStateChangedEvent args)
     {
-
         if (GetGoal(comp.PrototypeId) != ObjectiveType.Terminate)
             return;
 
         if (args.NewMobState is not (MobState.Dead or MobState.Critical))
             return;
 
-        Logger.Debug("SCP terminated");
         CompleteObjective(comp.PrototypeId);
     }
 

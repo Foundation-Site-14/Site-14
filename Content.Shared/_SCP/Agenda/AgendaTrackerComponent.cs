@@ -17,4 +17,5 @@ public sealed partial class AgendaTrackerComponent : Component
     [AutoNetworkedField]
     public ProtoId<AgendaObjectivePrototype> PrototypeId;
 
+
 }
