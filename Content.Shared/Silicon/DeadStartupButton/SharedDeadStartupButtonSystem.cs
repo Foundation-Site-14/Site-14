@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -27,7 +28,8 @@ public abstract partial class SharedDeadStartupButtonSystem : EntitySystem
 
     private void AddTurnOnVerb(EntityUid uid, DeadStartupButtonComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!_mobState.IsDead(uid)
+        if (!TryComp<MobStateComponent>(uid, out var mobState)
+            || !_mobState.IsDead(uid, mobState)
             || !args.CanAccess || !args.CanInteract || args.Hands == null)
             return;
 
@@ -49,7 +51,7 @@ public abstract partial class SharedDeadStartupButtonSystem : EntitySystem
         var args = new DoAfterArgs(EntityManager, user, comp.DoAfterInterval, new OnDoAfterButtonPressedEvent(), target, target:target)
         {
             BreakOnDamage = true,
-            BreakOnUserMove = true,
+            BreakOnMove = true,
         };
         _doAfterSystem.TryStartDoAfter(args);
     }

@@ -5,10 +5,6 @@
   id: MobHarpyBase
   abstract: true
   components:
-  - type: Flight
-    isLayerAnimated: true
-    layer: "/Textures/Mobs/Customization/Harpy/harpy_wings.rsi"
-    animationKey: "Flap"
   - type: Singer
     proto: HarpySinger
   - type: Sprite
@@ -18,6 +14,7 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
@@ -114,27 +111,29 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
+    - HarpyEmotes
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
-    - Tradeband
+    - ValyrianStandard
     understands:
     - TauCetiBasic
-    - Tradeband
+    - ValyrianStandard
   - type: StepTriggerImmune
     whitelist:
       types:
       - Shard
       - Landmine
       - Mousetrap
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard" # I was about to complain about this, then I remembered birbs have dinosaur feet. So this is valid.
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: Urist McBirb
   parent: MobHumanDummy
   id: MobHarpyDummy
-  noSpawn: true
   description: A dummy Harpy meant to be used in character setup.
   components:
   - type: HumanoidAppearance
@@ -149,6 +148,7 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
@@ -183,12 +183,15 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]
+      - map: [ "singingLayer" ]
+        sprite: Effects/harpysinger.rsi
+        state: singing_music_notes
 
 - type: entity
   id: ActionHarpyPlayMidi
   name: Play MIDI
   description: Sing your heart out! Right click yourself to set an instrument.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -200,7 +203,7 @@
   id: ActionSyrinxChangeVoiceMask
   name: Set name
   description: Change the name others hear to something else.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: DeltaV/Interface/Actions/harpy_syrinx.png
@@ -211,7 +214,7 @@
   id: ActionToggleFlight
   name: Fly
   description: Make use of your wings to fly. Beat the flightless bird allegations.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     checkCanInteract: false

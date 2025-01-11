@@ -69,6 +69,7 @@
   cost: 7500
   recipeUnlocks:
   - ClothingShoesBootsMagSci
+  - ClothingShoesBootsMoon
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -102,13 +103,12 @@
   id: AbnormalArtifactManipulation
   name: research-technology-abnormal-artifact-manipulation
   icon:
-    sprite: Structures/Machines/traversal_distorter.rsi
-    state: display
+    sprite: Structures/Machines/artifact_crusher.rsi
+    state: icon
   discipline: Experimental
   tier: 2
   cost: 5000
   recipeUnlocks:
-  - TraversalDistorterMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
 
 - type: technology
@@ -167,6 +167,33 @@
     - MedicalScannerMachineCircuitboard
     - MetempsychoticMachineCircuitboard
 
+- type: technology
+  id: NightVisionTech
+  name: research-technology-night-vision
+  icon:
+    sprite: Clothing/Eyes/Goggles/nightvision.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingEyesNightVisionGoggles
+  - ClothingEyesNightVisionSecurityGoggles
+  - ClothingEyesNightVisionMedicalGoggles
+  - ClothingEyesNightVisionDiagnosticGoggles
+
+- type: technology
+  id: ThermalVisionTech
+  name: research-technology-thermal-vision
+  icon:
+    sprite: Clothing/Eyes/Goggles/thermal.rsi
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingEyesThermalVisionGoggles
+
 # Tier 3
 
 - type: technology
@@ -183,18 +210,18 @@
   - SuperMatterBinStockPart
   - PicoManipulatorStockPart
 
-#- type: technology # DeltaV - LRP
-#  id: GravityManipulation
-#  name: research-technology-gravity-manipulation
-#  icon:
-#    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
-#    state: base
-#  discipline: Experimental
-#  tier: 3
-#  cost: 10000
-#  recipeUnlocks:
-#    - WeaponForceGun
-#    - WeaponTetherGun
+- type: technology
+  id: GravityManipulation
+  name: research-technology-gravity-manipulation
+  icon:
+    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+    state: base
+  discipline: Experimental
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+    - WeaponForceGun
+    - WeaponTetherGun
 
 - type: technology
   id: QuantumLeaping
