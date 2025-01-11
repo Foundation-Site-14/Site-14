@@ -1,8 +1,6 @@
-using System.Linq;
 using Content.Server.Station.Systems;
 using Content.Server._SCP.Agenda.Components;
 using Content.Shared._SCP.Agenda;
-using Content.Shared._SCP.Prototypes;
 using Content.Shared.Mobs;
 using Robust.Shared.Prototypes;
 
@@ -15,8 +13,6 @@ public sealed class AgendaSystem : EntitySystem
 
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -45,7 +41,7 @@ public sealed class AgendaSystem : EntitySystem
     }
 
     private ObjectiveType GetGoal(ProtoId<AgendaObjectivePrototype> protoId)
-    {
+    {xz
         var prototype = GetProto(protoId);
 
         if (prototype == null)
