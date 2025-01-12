@@ -10,7 +10,7 @@ namespace Content.Shared._SCP.NightVision;
 public sealed partial class NightVisionComponent : Component
 {
     [DataField]
-    public ProtoId<AlertPrototype>? Alert;
+    public ProtoId<AlertPrototype> Alert = "NightVision";
 
     [DataField, AutoNetworkedField]
     public NightVisionState State = NightVisionState.Full;
@@ -23,6 +23,7 @@ public sealed partial class NightVisionComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool SeeThroughContainers;
+
 }
 
 [Serializable, NetSerializable]

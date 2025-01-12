@@ -4,6 +4,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Content.Shared.Abilities;
 using Content.Shared._SCP.NightVision;
+using System.Numerics;
 
 namespace Content.Client._SCP.NightVision;
 
@@ -38,7 +39,7 @@ public sealed partial class GreenVisionOverlay : Overlay
 
         var worldHandle = args.WorldHandle;
         var viewport = args.WorldBounds;
-        worldHandle.SetTransform(Matrix3.Identity);
+        worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_greenVisionShader);
         worldHandle.DrawRect(viewport, Color.White);
     }

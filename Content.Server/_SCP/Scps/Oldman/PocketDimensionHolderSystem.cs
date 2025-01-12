@@ -115,7 +115,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
         _transform.SetCoordinates(uid,puddle.Coordinates);
 
         _puddle.DeletePuddle(uid);
-        _alerts.ClearAlert(uid, AlertType.PocketDimension);
+        _alerts.ClearAlert(uid, comp.PocketDimensionAlert);
 
         RemComp<CorrosivePuddleHolderComponent>(uid);
         RemComp<PocketDimensionInhabitantComponent>(uid);
