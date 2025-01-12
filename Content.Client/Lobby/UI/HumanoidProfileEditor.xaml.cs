@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -856,6 +857,9 @@ namespace Content.Client.Lobby.UI
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString($"department-{department.ID}");
+                if(!department.IsSCP)
+                    continue;
+                Logger.Debug(department.ID);
 
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
@@ -869,7 +873,7 @@ namespace Content.Client.Lobby.UI
 
                     category.Visible = department.IsSCP && !department.Hidden;
 
-                    if (firstCategory)
+                    if (firstCategory && category.Visible)
                         firstCategory = false;
                     else
                     {
