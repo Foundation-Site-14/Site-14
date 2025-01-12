@@ -5,7 +5,7 @@ namespace Content.Shared._SCP.NightVision;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedNightVisionSystem))]
-public sealed partial class NightVisionItemComponent : Component
+public sealed partial class ScpNightVisionItemComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntProtoId ActionId = "ActionToggleNightVision";

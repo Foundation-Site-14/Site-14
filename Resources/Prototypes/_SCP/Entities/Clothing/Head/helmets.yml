@@ -8,7 +8,7 @@
     sprite: _SCP/Clothing/Head/Helmets/sechelm.rsi
   - type: Clothing
     sprite: _SCP/Clothing/Head/Helmets/sechelm.rsi
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -26,7 +26,7 @@
     sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
   - type: Clothing
     sprite: _SCP/Clothing/Head/Helmets/mtfhelm.rsi
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -47,7 +47,7 @@
     sprite: _SCP/Clothing/Head/Helmets/mtfnvg.rsi
   - type: Sprite
     sprite: _SCP/Clothing/Head/Helmets/mtfnvg.rsi
-  - type: NightVisionItem
+  - type: ScpNightVisionItem
   - type: Appearance
   - type: GenericVisualizer
     visuals:

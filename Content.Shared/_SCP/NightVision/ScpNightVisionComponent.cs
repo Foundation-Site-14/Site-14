@@ -7,7 +7,7 @@ namespace Content.Shared._SCP.NightVision;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedNightVisionSystem))]
-public sealed partial class NightVisionComponent : Component
+public sealed partial class ScpNightVisionComponent : Component
 {
     [DataField]
     public ProtoId<AlertPrototype> Alert = "NightVision";

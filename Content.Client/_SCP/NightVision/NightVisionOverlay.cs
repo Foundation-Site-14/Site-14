@@ -31,7 +31,7 @@ public sealed class NightVisionOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (!_entity.TryGetComponent(_players.LocalEntity, out NightVisionComponent? nightVision) ||
+        if (!_entity.TryGetComponent(_players.LocalEntity, out ScpNightVisionComponent? nightVision) ||
             nightVision.State == NightVisionState.Off)
         {
             return;
