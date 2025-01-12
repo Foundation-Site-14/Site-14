@@ -41,8 +41,8 @@
 - type: entity
   id: CrateSecurityRiot
   parent: CrateSecgear
-  name: swat crate
-  description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
+  name: riot crate
+  description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Security access to open.
   components:
   - type: StorageFill
     contents:
@@ -56,7 +56,27 @@
         amount: 2
       - id: RiotShield
         amount: 2
-#      - SecGasmask
+      - id: ClothingMaskGasSecurity
+        amount: 2
+
+- type: entity
+  id: CrateSecuritySwat
+  parent: CrateSecgear
+  name: swat crate
+  description: Contains two sets of all encompassing swat suits. Requires Security access to open.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterArmorSwat
+        amount: 2
+      - id: ClothingHeadHelmetSwat
+        amount: 2
+      - id: ClothingMaskGasSwat
+        amount: 2
+      - id: ClothingHandsGlovesCombat
+        amount: 2
+      - id: ClothingShoesSwat
+        amount: 2
 
 - type: entity
   id: CrateSecuritySupplies
@@ -68,9 +88,9 @@
     contents:
       - id: BoxHandcuff
       - id: BoxSechud
-#      - SecBelt
-#      - SecGasmask
-#      - SpacelawBook
+      - id: ClothingBeltSecurityFilled
+      - id: ClothingMaskGasSecurity
+      - id: BookSecurity # replace with lawbook at some point
 
 - type: entity
   id: CrateRestraints
@@ -112,25 +132,5 @@
         amount: 4
       - id: TrackingImplanter
         amount: 4
-
-- type: entity
-  id: CrateSecurityShanlinTacsuit
-  parent: CrateSecgear
-  name: shanlin tacsuit crate
-  description: Contains a single CSA-51a Shanlin tacsuit. Requires Security access to open.
-  components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitSyndieReverseEngineered
-
-- type: entity
-  id: CrateSecurityGuanYuTacsuit
-  parent: CrateSecgear
-  name: shanlin tacsuit crate
-  description: Contains a single CSA-80UA Guan-Yu tacsuit. Requires Security access to open.
-  components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitJuggernautReverseEngineered
 
 # Cosmetic Crates

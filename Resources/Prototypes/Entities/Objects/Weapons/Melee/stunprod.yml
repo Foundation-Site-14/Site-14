@@ -25,9 +25,10 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Blunt: 0
+        Shock: 5
+  - type: ItemToggleDamageOtherOnHit
   - type: Stunbaton
-    energyPerUse: 70
+    energyPerUse: 120
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
@@ -36,9 +37,10 @@
       types:
         Blunt: 7.5
     bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 0.8
+    heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1.2
     animation: WeaponArcThrust
+  - type: DamageOtherOnHit
   - type: StaminaDamageOnHit
     damage: 22
     sound: /Audio/Weapons/egloves.ogg

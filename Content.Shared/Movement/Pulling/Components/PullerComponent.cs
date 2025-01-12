@@ -1,6 +1,8 @@
-﻿using Content.Shared.Movement.Pulling.Systems;
+﻿using Content.Shared.Alert;
+using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Movement.Pulling.Components;
@@ -22,7 +24,7 @@ public sealed partial class PullerComponent : Component
     public TimeSpan NextPushStop;
 
     [DataField]
-    public TimeSpan PushChangeCooldown = TimeSpan.FromSeconds(0.1f), PushDuration = TimeSpan.FromSeconds(2f);
+    public TimeSpan PushChangeCooldown = TimeSpan.FromSeconds(0.1f), PushDuration = TimeSpan.FromSeconds(5f);
 
     // Before changing how this is updated, please see SharedPullerSystem.RefreshMovementSpeed
     public float WalkSpeedModifier => Pulling == default ? 1.0f : 0.95f;
@@ -64,4 +66,6 @@ public sealed partial class PullerComponent : Component
     /// </summary>
     [DataField]
     public float MaxPushRange = 2f;
+    [DataField]
+    public ProtoId<AlertPrototype> PullingAlert = "Pulling";
 }
