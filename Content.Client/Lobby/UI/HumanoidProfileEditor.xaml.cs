@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -708,17 +707,8 @@ namespace Content.Client.Lobby.UI
             _jobPriorities.Clear();
             var firstCategory = true;
 
-            // Get all displayed departments
-            var departments = new List<DepartmentPrototype>();
-            foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
-            {
-                if (department.EditorHidden)
-                    continue;
-
-                departments.Add(department);
-            }
-
-            departments.Sort(DepartmentUIComparer.Instance);
+            var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>().ToArray();
+            Array.Sort(departments, DepartmentUIComparer.Instance);
 
             var items = new[]
             {
@@ -742,10 +732,7 @@ namespace Content.Client.Lobby.UI
                             ("departmentName", departmentName))
                     };
 
-
-                    category.Visible = department is { IsSCP: true, Hidden: false, };
-
-                    if (firstCategory && category.Visible)
+                    if (firstCategory)
                         firstCategory = false;
                     else
                         category.AddChild(new Control { MinSize = new Vector2(0, 23) });
@@ -871,9 +858,9 @@ namespace Content.Client.Lobby.UI
                             ("departmentName", departmentName))
                     };
 
-                    category.Visible = department is { IsSCP: true, Hidden: false, };
+                    category.Visible = department.IsSCP && !department.Hidden;
 
-                    if (firstCategory && category.Visible)
+                    if (firstCategory)
                         firstCategory = false;
                     else
                     {
@@ -901,7 +888,7 @@ namespace Content.Client.Lobby.UI
                     JobList.AddChild(category);
                 }
 
-                var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
+                var jobs = department.Roles.Select(jobId => _prototypeManager.Index<JobPrototype>(jobId))
                     .Where(job => job.SetPreference)
                     .ToArray();
                 Array.Sort(jobs, JobUIComparer.Instance);

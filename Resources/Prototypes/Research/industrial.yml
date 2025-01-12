@@ -211,7 +211,6 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
-  - MaterialSiloCircuitboard
 
 - type: technology
   id: PortableFission

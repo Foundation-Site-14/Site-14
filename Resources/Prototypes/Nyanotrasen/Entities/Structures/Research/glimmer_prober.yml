@@ -6,8 +6,6 @@
   components:
   - type: Psionic
     removable: false
-    assayFeedback:
-      - prober-feedback
   - type: InnatePsionicPowers
     powersToAdd:
       - TelepathyPower
@@ -95,8 +93,6 @@
   components:
   - type: Psionic
     removable: false
-    assayFeedback:
-      - drain-feedback
   - type: GlimmerSource
     addToGlimmer: false
   - type: Construction

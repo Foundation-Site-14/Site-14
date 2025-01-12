@@ -92,7 +92,6 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         EntityUid toInsert,
         EntityUid receiver,
         MaterialStorageComponent? storage = null,
-        MaterialSiloUtilizerComponent? utilizer = null,
         MaterialComponent? material = null,
         PhysicalCompositionComponent? composition = null)
     {
@@ -100,7 +99,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             return false;
         if (TryComp<ApcPowerReceiverComponent>(receiver, out var power) && !power.Powered)
             return false;
-        if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, utilizer, material, composition))
+        if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
         _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
@@ -188,28 +187,26 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
     /// <param name="maxAmount">The maximum amount to eject. If not given, as much as possible is ejected.</param>
     /// <param name="coordinates">The position where to spawn the created sheets. If not given, they're spawned next to the entity.</param>
     /// <param name="component">The storage component on <paramref name="entity"/>. Resolved automatically if not given.</param>
-    /// <param name="utilizer">The material silo utilizer component on <paramref name="uid"/>.</param>
     /// <returns>The stack entities that were spawned.</returns>
     public List<EntityUid> EjectMaterial(
         EntityUid entity,
         string material,
         int? maxAmount = null,
         EntityCoordinates? coordinates = null,
-        MaterialStorageComponent? component = null,
-        MaterialSiloUtilizerComponent? utilizer = null)
+        MaterialStorageComponent? component = null)
     {
         if (!Resolve(entity, ref component))
             return new List<EntityUid>();
 
         coordinates ??= Transform(entity).Coordinates;
 
-        var amount = GetMaterialAmount(entity, material, component, utilizer);
+        var amount = GetMaterialAmount(entity, material, component);
         if (maxAmount != null)
             amount = Math.Min(maxAmount.Value, amount);
 
         var spawned = SpawnMultipleFromMaterial(amount, material, coordinates.Value, out var overflow);
 
-        TryChangeMaterialAmount(entity, material, -(amount - overflow), component, utilizer);
+        TryChangeMaterialAmount(entity, material, -(amount - overflow), component);
         return spawned;
     }
 
@@ -219,13 +216,11 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
     /// <param name="entity">The entity with storage to eject from.</param>
     /// <param name="coordinates">The position where to spawn the created sheets. If not given, they're spawned next to the entity.</param>
     /// <param name="component">The storage component on <paramref name="entity"/>. Resolved automatically if not given.</param>
-    /// <param name="utilizer">The material silo utilizer component on <paramref name="uid"/>.</param>
     /// <returns>The stack entities that were spawned.</returns>
     public List<EntityUid> EjectAllMaterial(
         EntityUid entity,
         EntityCoordinates? coordinates = null,
-        MaterialStorageComponent? component = null,
-        MaterialSiloUtilizerComponent? utilizer = null)
+        MaterialStorageComponent? component = null)
     {
         if (!Resolve(entity, ref component))
             return new List<EntityUid>();
@@ -235,7 +230,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         var allSpawned = new List<EntityUid>();
         foreach (var material in component.Storage.Keys.ToArray())
         {
-            var spawned = EjectMaterial(entity, material, null, coordinates, component, utilizer);
+            var spawned = EjectMaterial(entity, material, null, coordinates, component);
             allSpawned.AddRange(spawned);
         }
 

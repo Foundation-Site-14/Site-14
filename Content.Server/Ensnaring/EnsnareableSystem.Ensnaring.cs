@@ -149,14 +149,14 @@ public sealed partial class EnsnareableSystem
 
         var target = component.Ensnared.Value;
 
-        _container.TryRemoveFromContainer(ensnare, force: true); // Goobstation - fix on ensnare entity remove
+        _container.Remove(ensnare, ensnareable.Container, force: true);
         ensnareable.IsEnsnared = ensnareable.Container.ContainedEntities.Count > 0;
         Dirty(component.Ensnared.Value, ensnareable);
         component.Ensnared = null;
 
         UpdateAlert(target, ensnareable);
         var ev = new EnsnareRemoveEvent(component.WalkSpeed, component.SprintSpeed);
-        RaiseLocalEvent(target, ev);
+        RaiseLocalEvent(ensnare, ev);
     }
 
     /// <summary>

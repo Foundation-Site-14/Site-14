@@ -44,11 +44,10 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         EntityUid toInsert,
         EntityUid receiver,
         MaterialStorageComponent? storage = null,
-        MaterialSiloUtilizerComponent? utilizer = null,
         MaterialComponent? material = null,
         PhysicalCompositionComponent? composition = null)
     {
-        if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, utilizer, material, composition))
+        if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _transform.DetachParentToNull(toInsert, Transform(toInsert));
         return true;

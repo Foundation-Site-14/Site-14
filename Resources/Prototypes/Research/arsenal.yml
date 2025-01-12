@@ -31,7 +31,6 @@
   - MagazineMagnumIncendiary
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
-  - SpeedLoaderRifleHeavyIncendiary # Frontier
   - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
@@ -84,10 +83,6 @@
   - CartridgeSpecialRubber
   - MagazineBoxSpecialRubber
   - WeaponDisabler
-  - MagazineBoxLightRifleRubber # Frontier
-  - MagazineBoxMagnumRubber # Frontier
-  - MagazineBoxPistolRubber # Frontier
-  - MagazineBoxRifleRubber # Frontier
 
 - type: technology
   id: UraniumMunitions
@@ -105,7 +100,6 @@
   - MagazineMagnumUranium
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
-  - SpeedLoaderRifleHeavyUranium # Frontier
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium

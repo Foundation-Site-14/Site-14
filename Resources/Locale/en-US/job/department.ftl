@@ -5,5 +5,4 @@ department-Engineering = Engineering
 department-Medical = Medical
 department-Security = Security
 department-Science = Science
-department-Silicon = Silicons
 department-Specific = Station specific

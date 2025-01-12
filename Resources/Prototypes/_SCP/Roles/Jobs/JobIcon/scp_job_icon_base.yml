@@ -1,4 +1,4 @@
-﻿- type: jobIcon
+﻿- type: statusIcon
   id: SCPJobIcon
   abstract: true
   priority: 1

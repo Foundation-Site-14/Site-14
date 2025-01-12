@@ -36,5 +36,4 @@ public sealed partial class PocketDimensionInhabitantComponent : Component
 
     [DataField]
     public ProtoId<DamageTypePrototype> damageProto = "Heat";
-
 }

@@ -90,22 +90,22 @@ public sealed partial class AdminVerbSystem
                 args.Verbs.Add(bolt);
             }
 
-            if (TryComp<AirlockComponent>(args.Target, out var airlockComp))
+            if (TryComp<AirlockComponent>(args.Target, out var airlock))
             {
                 Verb emergencyAccess = new()
                 {
-                    Text = airlockComp.EmergencyAccess ? "Emergency Access Off" : "Emergency Access On",
+                    Text = airlock.EmergencyAccess ? "Emergency Access Off" : "Emergency Access On",
                     Category = VerbCategory.Tricks,
                     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/emergency_access.png")),
                     Act = () =>
                     {
-                        _airlockSystem.SetEmergencyAccess((args.Target, airlockComp), !airlockComp.EmergencyAccess);
+                        _airlockSystem.ToggleEmergencyAccess(args.Target, airlock);
                     },
                     Impact = LogImpact.Medium,
-                    Message = Loc.GetString(airlockComp.EmergencyAccess
+                    Message = Loc.GetString(airlock.EmergencyAccess
                         ? "admin-trick-emergency-access-off-description"
                         : "admin-trick-emergency-access-on-description"),
-                    Priority = (int) (airlockComp.EmergencyAccess ? TricksVerbPriorities.EmergencyAccessOff : TricksVerbPriorities.EmergencyAccessOn),
+                    Priority = (int) (airlock.EmergencyAccess ? TricksVerbPriorities.EmergencyAccessOff : TricksVerbPriorities.EmergencyAccessOn),
                 };
                 args.Verbs.Add(emergencyAccess);
             }

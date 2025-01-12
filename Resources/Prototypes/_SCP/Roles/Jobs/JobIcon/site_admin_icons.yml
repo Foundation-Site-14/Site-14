@@ -1,4 +1,4 @@
-﻿- type: jobIcon
+﻿- type: statusIcon
   parent: SCPJobIcon
   id: SCPJobIconSiteDirector
   icon:

@@ -18,8 +18,6 @@
   - type: Actions
   - type: Psionic
     removable: false
-    assayFeedback:
-      - oracle-feedback
     psychognomicDescriptors:
       - p-descriptor-old
       - p-descriptor-demiurgic

@@ -15,8 +15,6 @@ public sealed partial class MaterialStorageControl : ScrollContainer
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
-    private readonly MaterialSiloSystem _materialSilo;
-
     private EntityUid? _owner;
 
     private Dictionary<string, int> _currentMaterials = new();
@@ -25,8 +23,6 @@ public sealed partial class MaterialStorageControl : ScrollContainer
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-
-        _materialSilo = _entityManager.System<MaterialSiloSystem>();
     }
 
     public void SetOwner(EntityUid owner)
@@ -48,22 +44,7 @@ public sealed partial class MaterialStorageControl : ScrollContainer
         }
 
         var canEject = materialStorage.CanEjectStoredMaterials;
-
-        Dictionary<string, int> mats;
-        if (_entityManager.TryGetComponent<MaterialSiloUtilizerComponent>(_owner, out var utilizer) && utilizer.Silo.HasValue)
-        {
-            var silo = _materialSilo.GetSiloStorage(_owner.Value);
-            mats = silo != null
-                ? silo.Value.Comp.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary()
-                : materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
-            ConnectToSiloLabel.Visible = silo != null;
-        }
-        else
-        {
-            mats = materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
-            ConnectToSiloLabel.Visible = false;
-        }
-
+        var mats = materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
         if (_currentMaterials.Equals(mats))
             return;
 

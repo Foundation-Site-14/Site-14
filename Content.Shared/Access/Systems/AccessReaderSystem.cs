@@ -6,7 +6,6 @@ using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
-using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.StationRecords;
 using Robust.Shared.Containers;
@@ -381,19 +380,19 @@ public sealed class AccessReaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Logs an access for a specific entity.
+    /// Logs an access
     /// </summary>
     /// <param name="ent">The reader to log the access on</param>
     /// <param name="accessor">The accessor to log</param>
-    public void LogAccess(Entity<AccessReaderComponent> ent, EntityUid accessor)
+    private void LogAccess(Entity<AccessReaderComponent> ent, EntityUid accessor)
     {
-        if (IsPaused(ent) || ent.Comp.LoggingDisabled)
+        if (IsPaused(ent))
             return;
 
-        string? name = null;
-        if (TryComp<NameIdentifierComponent>(accessor, out var nameIdentifier))
-            name = nameIdentifier.FullIdentifier;
+        if (ent.Comp.AccessLog.Count >= ent.Comp.AccessLogLimit)
+            ent.Comp.AccessLog.Dequeue();
 
+        string? name = null;
         // TODO pass the ID card on IsAllowed() instead of using this expensive method
         // Set name if the accessor has a card and that card has a name and allows itself to be recorded
         var getIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, accessor, true);
@@ -403,21 +402,7 @@ public sealed class AccessReaderSystem : EntitySystem
             name = getIdentityShortInfoEvent.Title;
         }
 
-        LogAccess(ent, name ?? Loc.GetString("access-reader-unknown-id"));
-    }
-
-    /// <summary>
-    /// Logs an access with a predetermined name
-    /// </summary>
-    /// <param name="ent">The reader to log the access on</param>
-    /// <param name="name">The name to log as</param>
-    public void LogAccess(Entity<AccessReaderComponent> ent, string name)
-    {
-        if (IsPaused(ent) || ent.Comp.LoggingDisabled)
-            return;
-
-        if (ent.Comp.AccessLog.Count >= ent.Comp.AccessLogLimit)
-            ent.Comp.AccessLog.Dequeue();
+        name ??= Loc.GetString("access-reader-unknown-id");
 
         var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
         ent.Comp.AccessLog.Enqueue(new AccessRecord(stationTime, name));

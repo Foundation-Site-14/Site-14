@@ -48,9 +48,6 @@ public sealed class TraitSystem : EntitySystem
     {
         var pointsTotal = _configuration.GetCVar(CCVars.GameTraitsDefaultPoints);
         var traitSelections = _configuration.GetCVar(CCVars.GameTraitsMax);
-        if (args.JobId is not null && !_prototype.TryIndex<JobPrototype>(args.JobId, out var jobPrototype)
-            && jobPrototype is not null && !jobPrototype.ApplyTraits)
-            return;
 
         foreach (var traitId in args.Profile.TraitPreferences)
         {
