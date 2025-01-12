@@ -54,3 +54,16 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.75
     baseSprintSpeed: 1
+  - type: AgendaTracker
+    prototypeId: TestObjectiveA
+
+- type: entity
+  parent: SCP-999
+  id: SCP-999-DEBUG
+  name: SCP-999-DEBUG
+  description:
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead

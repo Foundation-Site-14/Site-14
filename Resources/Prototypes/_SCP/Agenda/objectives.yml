@@ -1,0 +1,8 @@
+- type: agendaObjective
+  id: TestObjectiveA
+  objectiveGoal: Terminate
+
+- type: agendaObjective
+  id: TestObjectiveB
+  objectiveGoal: Tests
+
