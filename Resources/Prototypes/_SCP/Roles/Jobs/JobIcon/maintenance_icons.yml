@@ -1,11 +1,11 @@
-﻿- type: statusIcon
+﻿- type: jobIcon
   parent: SCPJobIcon
   id: SCPJobIconContainmentEngineer
   icon:
     sprite: /Textures/_SCP/Interface/job_icons.rsi
     state: maint
 
-- type: statusIcon
+- type: jobIcon
   parent: SCPJobIcon
   id: SCPJobIconChiefContainmentEngineer
   icon:
@@ -13,7 +13,7 @@
     state: ce
 
 
-- type: statusIcon
+- type: jobIcon
   parent: SCPJobIcon
   id: SCPJobIconCustodian
   icon:

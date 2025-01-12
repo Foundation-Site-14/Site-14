@@ -1,11 +1,11 @@
-﻿- type: statusIcon
+﻿- type: jobIcon
   parent: SCPJobIcon
   id: SCPJobIconMobileTaskForce
   icon:
     sprite: /Textures/_SCP/Interface/job_icons.rsi
     state: mtf
 
-- type: statusIcon
+- type: jobIcon
   parent: SCPJobIcon
   id: SCPJobIconMobileTaskForceCO
   icon:
