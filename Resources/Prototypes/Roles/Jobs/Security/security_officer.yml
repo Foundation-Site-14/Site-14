@@ -4,8 +4,8 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Security
+  - !type:CharacterDepartmentTimeRequirement
+    department: Security
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -33,10 +33,6 @@
     id: SecurityPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-<<<<<<< HEAD
-    pocket1: WeaponPistolMk58
-=======
->>>>>>> ee/master
   innerClothingSkirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurity
   duffelbag: ClothingBackpackDuffelSecurity
