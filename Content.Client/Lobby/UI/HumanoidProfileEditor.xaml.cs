@@ -742,7 +742,10 @@ namespace Content.Client.Lobby.UI
                             ("departmentName", departmentName))
                     };
 
-                    if (firstCategory)
+
+                    category.Visible = department is { IsSCP: true, Hidden: false, };
+
+                    if (firstCategory && category.Visible)
                         firstCategory = false;
                     else
                         category.AddChild(new Control { MinSize = new Vector2(0, 23) });
@@ -857,9 +860,6 @@ namespace Content.Client.Lobby.UI
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString($"department-{department.ID}");
-                if(!department.IsSCP)
-                    continue;
-                Logger.Debug(department.ID);
 
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
@@ -871,7 +871,7 @@ namespace Content.Client.Lobby.UI
                             ("departmentName", departmentName))
                     };
 
-                    category.Visible = department.IsSCP && !department.Hidden;
+                    category.Visible = department is { IsSCP: true, Hidden: false, };
 
                     if (firstCategory && category.Visible)
                         firstCategory = false;
