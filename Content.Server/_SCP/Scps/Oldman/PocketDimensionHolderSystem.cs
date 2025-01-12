@@ -50,7 +50,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
             comp.pocketDimensionMap = map;
         }
 
-        EntityManager.EventBus.RaiseComponentEvent(comp, new OldManSpawnEvent());
+        EntityManager.EventBus.RaiseComponentEvent(owner,comp, new OldManSpawnEvent());
     }
 
     //Enter Dimension
@@ -95,7 +95,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
             _puddle.CreatePuddle(entity, comp, puddleSpawn);
             _transform.SetCoordinates(entity, new EntityCoordinates(comp.pocketDimensionGrid.Value, playerSpawn));
 
-            EntityManager.EventBus.RaiseComponentEvent(dweller,new PocketDimensionCaptureEvent());
+            EntityManager.EventBus.RaiseComponentEvent(entity,dweller,new PocketDimensionCaptureEvent());
         }
     }
 
@@ -104,7 +104,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
         if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical)
         {
             _puddle.DeletePuddle(inhabitant);
-            EntityManager.EventBus.RaiseComponentEvent(comp,new PocketDimensionPerishEvent());
+            EntityManager.EventBus.RaiseComponentEvent(inhabitant,comp,new PocketDimensionPerishEvent());
         }
     }
 
@@ -115,7 +115,7 @@ public sealed class PocketDimensionHolderSystem : EntitySystem
         _transform.SetCoordinates(uid,puddle.Coordinates);
 
         _puddle.DeletePuddle(uid);
-        _alerts.ClearAlert(uid, AlertType.PocketDimension);
+        _alerts.ClearAlert(uid, comp.PocketDimensionAlert);
 
         RemComp<CorrosivePuddleHolderComponent>(uid);
         RemComp<PocketDimensionInhabitantComponent>(uid);

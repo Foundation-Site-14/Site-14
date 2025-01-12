@@ -67,7 +67,7 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
     {
         var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, TimeSpan.FromSeconds(3f), new PocketDimensionEnterDoAfterEvent(),args.Performer)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnDamage = false
         };
 
@@ -86,7 +86,7 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
         if(!TryComp<PocketDimensionHolderComponent>(component.dimensionOwner, out var holder))
             return;
 
-        _alerts.ShowAlert(inhabitant, AlertType.PocketDimension);
+        _alerts.ShowAlert(inhabitant, component.PocketDimensionAlert);
         _audio.PlayGlobal(holder.laughSound, mind.Session);
     }
 
@@ -123,7 +123,7 @@ public sealed class SharedPocketDimensionSystem : EntitySystem
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(3f), new PocketDimensionEscapeDoAfterEvent(),args.User,args.Target)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnDamage = false
         };
 

@@ -23,43 +23,43 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<NightVisionComponent, ComponentStartup>(OnNightVisionStartup);
-        SubscribeLocalEvent<NightVisionComponent, MapInitEvent>(OnNightVisionMapInit);
-        SubscribeLocalEvent<NightVisionComponent, AfterAutoHandleStateEvent>(OnNightVisionAfterHandle);
-        SubscribeLocalEvent<NightVisionComponent, ComponentRemove>(OnNightVisionRemove);
-        SubscribeLocalEvent<NightVisionItemComponent, GetItemActionsEvent>(OnNightVisionItemGetActions);
-        SubscribeLocalEvent<NightVisionItemComponent, ToggleActionEvent>(OnNightVisionItemToggle);
-        SubscribeLocalEvent<NightVisionItemComponent, GotEquippedEvent>(OnNightVisionItemGotEquipped);
-        SubscribeLocalEvent<NightVisionItemComponent, GotUnequippedEvent>(OnNightVisionItemGotUnequipped);
-        SubscribeLocalEvent<NightVisionItemComponent, ActionRemovedEvent>(OnNightVisionItemActionRemoved);
-        SubscribeLocalEvent<NightVisionItemComponent, ComponentRemove>(OnNightVisionItemRemove);
-        SubscribeLocalEvent<NightVisionItemComponent, EntityTerminatingEvent>(OnNightVisionItemTerminating);
+        SubscribeLocalEvent<ScpNightVisionComponent, ComponentStartup>(OnNightVisionStartup);
+        SubscribeLocalEvent<ScpNightVisionComponent, MapInitEvent>(OnNightVisionMapInit);
+        SubscribeLocalEvent<ScpNightVisionComponent, AfterAutoHandleStateEvent>(OnNightVisionAfterHandle);
+        SubscribeLocalEvent<ScpNightVisionComponent, ComponentRemove>(OnNightVisionRemove);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, GetItemActionsEvent>(OnNightVisionItemGetActions);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, ToggleActionEvent>(OnNightVisionItemToggle);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, GotEquippedEvent>(OnNightVisionItemGotEquipped);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, GotUnequippedEvent>(OnNightVisionItemGotUnequipped);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, ActionRemovedEvent>(OnNightVisionItemActionRemoved);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, ComponentRemove>(OnNightVisionItemRemove);
+        SubscribeLocalEvent<ScpNightVisionItemComponent, EntityTerminatingEvent>(OnNightVisionItemTerminating);
     }
 
-    private void OnNightVisionStartup(Entity<NightVisionComponent> ent, ref ComponentStartup args)
+    private void OnNightVisionStartup(Entity<ScpNightVisionComponent> ent, ref ComponentStartup args)
     {
         NightVisionChanged(ent);
     }
 
-    private void OnNightVisionAfterHandle(Entity<NightVisionComponent> ent, ref AfterAutoHandleStateEvent args)
+    private void OnNightVisionAfterHandle(Entity<ScpNightVisionComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         NightVisionChanged(ent);
     }
 
-    private void OnNightVisionMapInit(Entity<NightVisionComponent> ent, ref MapInitEvent args)
+    private void OnNightVisionMapInit(Entity<ScpNightVisionComponent> ent, ref MapInitEvent args)
     {
         UpdateAlert(ent);
     }
 
-    private void OnNightVisionRemove(Entity<NightVisionComponent> ent, ref ComponentRemove args)
+    private void OnNightVisionRemove(Entity<ScpNightVisionComponent> ent, ref ComponentRemove args)
     {
         if (ent.Comp.Alert is { } alert)
-            _alerts.ClearAlert(ent, AlertType.NightVision);
+            _alerts.ClearAlert(ent, ent.Comp.Alert);
 
         NightVisionRemoved(ent);
     }
 
-    private void OnNightVisionItemGetActions(Entity<NightVisionItemComponent> ent, ref GetItemActionsEvent args)
+    private void OnNightVisionItemGetActions(Entity<ScpNightVisionItemComponent> ent, ref GetItemActionsEvent args)
     {
         if (args.InHands || !ent.Comp.Toggleable)
             return;
@@ -67,39 +67,39 @@ public abstract class SharedNightVisionSystem : EntitySystem
         args.AddAction(ref ent.Comp.Action, ent.Comp.ActionId);
     }
 
-    private void OnNightVisionItemToggle(Entity<NightVisionItemComponent> ent, ref ToggleActionEvent args)
+    private void OnNightVisionItemToggle(Entity<ScpNightVisionItemComponent> ent, ref ToggleActionEvent args)
     {
 
         args.Handled = true;
         ToggleNightVisionItem(ent, args.Performer);
     }
 
-    private void OnNightVisionItemGotEquipped(Entity<NightVisionItemComponent> ent, ref GotEquippedEvent args)
+    private void OnNightVisionItemGotEquipped(Entity<ScpNightVisionItemComponent> ent, ref GotEquippedEvent args)
     {
         ToggleNightVisionItem(ent, args.Equipee);
     }
 
-    private void OnNightVisionItemGotUnequipped(Entity<NightVisionItemComponent> ent, ref GotUnequippedEvent args)
+    private void OnNightVisionItemGotUnequipped(Entity<ScpNightVisionItemComponent> ent, ref GotUnequippedEvent args)
     {
         DisableNightVisionItem(ent, args.Equipee);
     }
 
-    private void OnNightVisionItemActionRemoved(Entity<NightVisionItemComponent> ent, ref ActionRemovedEvent args)
+    private void OnNightVisionItemActionRemoved(Entity<ScpNightVisionItemComponent> ent, ref ActionRemovedEvent args)
     {
         DisableNightVisionItem(ent, ent.Comp.User);
     }
 
-    private void OnNightVisionItemRemove(Entity<NightVisionItemComponent> ent, ref ComponentRemove args)
+    private void OnNightVisionItemRemove(Entity<ScpNightVisionItemComponent> ent, ref ComponentRemove args)
     {
         DisableNightVisionItem(ent, ent.Comp.User);
     }
 
-    private void OnNightVisionItemTerminating(Entity<NightVisionItemComponent> ent, ref EntityTerminatingEvent args)
+    private void OnNightVisionItemTerminating(Entity<ScpNightVisionItemComponent> ent, ref EntityTerminatingEvent args)
     {
         DisableNightVisionItem(ent, ent.Comp.User);
     }
 
-    public void Toggle(Entity<NightVisionComponent?> ent)
+    public void Toggle(Entity<ScpNightVisionComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -116,20 +116,20 @@ public abstract class SharedNightVisionSystem : EntitySystem
         UpdateAlert((ent, ent.Comp));
     }
 
-    private void UpdateAlert(Entity<NightVisionComponent> ent)
+    private void UpdateAlert(Entity<ScpNightVisionComponent> ent)
     {
         if (ent.Comp.Alert is { } alert)
         {
             var level = MathF.Max((int) NightVisionState.Off, (int) ent.Comp.State);
-            var max = _alerts.GetMaxSeverity(AlertType.NightVision);
+            var max = _alerts.GetMaxSeverity(ent.Comp.Alert);
             var severity = max - ContentHelpers.RoundToLevels(level, (int) NightVisionState.Full, max + 1);
-            _alerts.ShowAlert(ent, AlertType.NightVision, (short) severity);
+            _alerts.ShowAlert(ent, ent.Comp.Alert, (short) severity);
         }
 
         NightVisionChanged(ent);
     }
 
-    private void ToggleNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid user)
+    private void ToggleNightVisionItem(Entity<ScpNightVisionItemComponent> item, EntityUid user)
     {
 
         if (item.Comp.User == user && item.Comp.Toggleable)
@@ -141,7 +141,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
         EnableNightVisionItem(item, user);
     }
 
-    private void EnableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid user)
+    private void EnableNightVisionItem(Entity<ScpNightVisionItemComponent> item, EntityUid user)
     {
         DisableNightVisionItem(item, item.Comp.User);
         var entity = item.Owner;
@@ -157,7 +157,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
         if (!_timing.ApplyingState)
         {
-            var nightVision = EnsureComp<NightVisionComponent>(user);
+            var nightVision = EnsureComp<ScpNightVisionComponent>(user);
             var greenVision = EnsureComp<GreenVisionComponent>(user);
             nightVision.State = NightVisionState.Full;
             Dirty(user, nightVision);
@@ -167,15 +167,15 @@ public abstract class SharedNightVisionSystem : EntitySystem
         _actions.SetToggled(item.Comp.Action, true);
     }
 
-    protected virtual void NightVisionChanged(Entity<NightVisionComponent> ent)
+    protected virtual void NightVisionChanged(Entity<ScpNightVisionComponent> ent)
     {
     }
 
-    protected virtual void NightVisionRemoved(Entity<NightVisionComponent> ent)
+    protected virtual void NightVisionRemoved(Entity<ScpNightVisionComponent> ent)
     {
     }
 
-    protected void DisableNightVisionItem(Entity<NightVisionItemComponent> item, EntityUid? user)
+    protected void DisableNightVisionItem(Entity<ScpNightVisionItemComponent> item, EntityUid? user)
     {
         _actions.SetToggled(item.Comp.Action, false);
         var entity = item.Owner;
@@ -188,15 +188,15 @@ public abstract class SharedNightVisionSystem : EntitySystem
         _appearance.SetData(item, NightVisionItemVisuals.Active, false);
         _appearance.SetData(item, NightVisionItemVisuals.Inactive, true);
 
-        if (TryComp(user, out NightVisionComponent? nightVision) &&
+        if (TryComp(user, out ScpNightVisionComponent? nightVision) &&
             !nightVision.Innate)
         {
-            RemCompDeferred<NightVisionComponent>(user.Value);
+            RemCompDeferred<ScpNightVisionComponent>(user.Value);
             RemCompDeferred<GreenVisionComponent>(user.Value);
         }
     }
 
-    public void SetSeeThroughContainers(Entity<NightVisionComponent?> ent, bool see)
+    public void SetSeeThroughContainers(Entity<ScpNightVisionComponent?> ent, bool see)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return;

@@ -15,21 +15,21 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NightVisionComponent, LocalPlayerAttachedEvent>(OnNightVisionAttached);
-        SubscribeLocalEvent<NightVisionComponent, LocalPlayerDetachedEvent>(OnNightVisionDetached);
+        SubscribeLocalEvent<ScpNightVisionComponent, LocalPlayerAttachedEvent>(OnNightVisionAttached);
+        SubscribeLocalEvent<ScpNightVisionComponent, LocalPlayerDetachedEvent>(OnNightVisionDetached);
     }
 
-    private void OnNightVisionAttached(Entity<NightVisionComponent> ent, ref LocalPlayerAttachedEvent args)
+    private void OnNightVisionAttached(Entity<ScpNightVisionComponent> ent, ref LocalPlayerAttachedEvent args)
     {
         NightVisionChanged(ent);
     }
 
-    private void OnNightVisionDetached(Entity<NightVisionComponent> ent, ref LocalPlayerDetachedEvent args)
+    private void OnNightVisionDetached(Entity<ScpNightVisionComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         Off();
     }
 
-    protected override void NightVisionChanged(Entity<NightVisionComponent> ent)
+    protected override void NightVisionChanged(Entity<ScpNightVisionComponent> ent)
     {
         if (ent != _player.LocalEntity)
             return;
@@ -50,7 +50,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         }
     }
 
-    protected override void NightVisionRemoved(Entity<NightVisionComponent> ent)
+    protected override void NightVisionRemoved(Entity<ScpNightVisionComponent> ent)
     {
         if (ent != _player.LocalEntity)
             return;
@@ -64,7 +64,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _light.DrawLighting = true;
     }
 
-    private void Half(Entity<NightVisionComponent> ent)
+    private void Half(Entity<ScpNightVisionComponent> ent)
     {
         if (ent.Comp.Overlay)
             _overlay.AddOverlay(new NightVisionOverlay());
@@ -72,7 +72,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _light.DrawLighting = true;
     }
 
-    private void Full(Entity<NightVisionComponent> ent)
+    private void Full(Entity<ScpNightVisionComponent> ent)
     {
         if (ent.Comp.Overlay)
             _overlay.AddOverlay(new NightVisionOverlay());
