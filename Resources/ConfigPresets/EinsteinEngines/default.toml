@@ -53,3 +53,6 @@ map_enabled = true
 
 #[worldgen]
 #enabled = true
+
+[physics]
+maxlinvelocity = 41
