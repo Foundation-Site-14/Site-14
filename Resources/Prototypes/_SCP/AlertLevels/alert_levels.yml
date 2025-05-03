@@ -1,0 +1,30 @@
+﻿- type: alertLevels
+  id: scpStationAlerts
+  defaultLevel: scp-green
+  levels:
+    scp-green:
+      announcement: alert-level-scp-green-announcement
+      color: Green
+      emergencyLightColor: LawnGreen
+      shuttleTime: 600
+    scp-yellow:
+      announcement: alert-level-scp-yellow-announcement
+      sound: /Audio/_SCP/Announcements/Alerts/yellow.ogg
+      color: Chartreuse
+      emergencyLightColor: Chartreuse
+      shuttleTime: 600
+    scp-orange:
+      announcement: alert-level-scp-orange-announcement
+      sound: /Audio/_SCP/Announcements/Alerts/orange.ogg
+      color: Chocolate
+      emergencyLightColor: Chocolate
+      shuttleTime: 600
+    scp-red:
+      announcement: alert-level-scp-red-announcement
+      sound: /Audio/_SCP/Announcements/Alerts/red.ogg
+      emergencyLightColor: Crimson
+      forceEnableEmergencyLights: true
+      color: Crimson
+      shuttleTime: 600
+      selectable: false
+      disableSelection: true
