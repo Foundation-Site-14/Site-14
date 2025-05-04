@@ -36,9 +36,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
-  - type: Hands
-    showInHands: false
-    disableExplosionRecursion: true
+#  - type: Hands
+#    showInHands: false
+#    disableExplosionRecursion: true
 
 - type: entity
   parent: [ SCPOldman ]

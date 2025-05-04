@@ -1,0 +1,47 @@
+- type: entity
+  parent: SCPPlayableBase
+  id: SCPPlaugeDoctor
+  name: SCP-049
+  description: scp 049
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 3.5
+  - type: PlagueDoctor
+    fail: "scp-plaugedoctor-skin-conceled"
+    damage:
+      groups:
+        Genetic: 200
+    reviveTime: 20
+  - type: Sprite
+    sprite: _SCP/Mobs/Scps/plaugedoctor.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: variant_3
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+
+#- type: entity
+#  parent: [ SCPOldman ]
+#  id: SCPOldmanAI
+#  name: SCP-106 (AI)
+#  components:
+#  - type: HTN
+#    rootTask:
+#      task: SimpleHostileCompound
+#    blackboard:
+#      NavClimb: !type:Bool
+#        true
+#      NavSmash: !type:Bool
+#        true
+#  - type: NpcFactionMember
+#    factions:
+#    - SimpleHostile
+#  - type: Tag
+#    tags:
+#    - DoorBumpOpener
+#    - FootstepSound
+#  - type: MovementAlwaysTouching
+#  - type: ReplacementAccent
+#    accent: genericAggressive
