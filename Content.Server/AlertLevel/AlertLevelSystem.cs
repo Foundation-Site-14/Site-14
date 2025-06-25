@@ -162,7 +162,11 @@ public sealed class AlertLevelSystem : EntitySystem
 
         var alert = $"alert{char.ToUpperInvariant(level[0]) + level[1..]}";
         if (playSound)
-            _announcer.SendAnnouncementAudio(alert, _stationSystem.GetInOwningStation(station));
+        {
+            var filter = _stationSystem.GetInOwningStation(station);
+            _audio.PlayGlobal(detail.Sound, filter, true, detail.Sound?.Params);
+        }
+
         if (announce)
             _announcer.SendAnnouncementMessage(alert, "alert-level-announcement", null, detail.Color, null, null,
                 ("name", name), ("announcement", announcement));
